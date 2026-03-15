@@ -495,7 +495,7 @@
         <div class="actions">
           <a class="btn primary" href="#projects" data-i18n="ctaProjects">View Projects</a>
           <a class="btn" href="mailto:lw3227@columbia.edu" data-i18n="ctaEmail">Email Me</a>
-          <a class="btn" href="Linxiao Wu Resume.pdf" target="_blank" data-i18n="ctaResume">Download Resume</a>
+          <a class="btn" id="resume-link" href="Linxiao Wu.pdf" target="_blank" data-i18n="ctaResume">Download Resume</a>
           <a class="btn" href="https://github.com/lw3227" target="_blank">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/linxiao-wu" target="_blank">LinkedIn</a>
         </div>
@@ -557,7 +557,7 @@
           <article class="card project">
             <div class="project-top">
               <div class="meta" data-i18n="proj1Meta">Feb 2026 - Present · Apple-Sponsored Tape-Out Project</div>
-              <span class="project-badge" data-i18n="badgeFeatured">Featured</span>
+              <span class="project-badge" data-i18n="badgeAiChip">AI Chip</span>
             </div>
             <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"></rect><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M6 18l1.5-1.5"></path></svg></span><span data-i18n="proj1Title">Systolic Array-Based CNN Accelerator for Gesture Recognition</span></h3>
             <p class="muted" data-i18n="proj1Body">
@@ -588,18 +588,23 @@
           <article class="card project">
             <div class="project-top">
               <div class="meta" data-i18n="proj2Meta">Mar 2026 - Present · Computer Architecture</div>
-              <span class="project-badge" data-i18n="badgeArchitecture">Architecture</span>
+              <span class="project-badge" data-i18n="badgeArchitecture">ARCHITECTURE</span>
             </div>
             <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="12" rx="2"></rect><path d="M8 10h8M8 14h5M3 9h2M3 15h2M19 9h2M19 15h2"></path></svg></span><span data-i18n="proj2Title">Out-of-Order RISC-V Processor</span></h3>
             <p class="muted" data-i18n="proj2Body">
               Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table,
-              reservation stations, physical register file, precise commit, and speculative recovery support.
+              reservation stations, physical register file, precise commit, speculative recovery support, and
+              multi-stage execution coordination across the pipeline.
             </p>
             <ul class="muted">
-              <li data-i18n="proj2Item1">Implemented key OoO structures including rename, issue, commit, and recovery logic.</li>
-              <li data-i18n="proj2Item2">Focused on precise architectural state, dependency tracking, and speculation-safe execution.</li>
-              <li data-i18n="proj2Item3">Used the project to deepen understanding of performance-oriented CPU microarchitecture.</li>
+              <li data-i18n="proj2Item1">Implemented core OoO structures including register renaming, reservation-station scheduling, ROB-based commit, and branch-misprediction recovery logic.</li>
+              <li data-i18n="proj2Item2">Designed the interaction between issue, execute, writeback, and commit stages to maintain precise architectural state under speculation.</li>
+              <li data-i18n="proj2Item3">Worked through data hazards, dependency tracking, and rollback behavior to better understand performance-oriented CPU microarchitecture.</li>
+              <li data-i18n="proj2Item4">Used the project to connect classroom architecture concepts with concrete RTL-level control and datapath design decisions.</li>
             </ul>
+            <p class="muted" data-i18n="proj2Note">
+              This processor project is still a work in progress, and the current description reflects the architecture and implementation scope completed so far.
+            </p>
             <div class="tags">
               <span class="tag">RISC-V</span>
               <span class="tag" data-i18n="tagOoo">OoO Core</span>
@@ -611,7 +616,7 @@
           <article class="card project">
             <div class="project-top">
               <div class="meta" data-i18n="proj3Meta">Oct 2025 - Dec 2025 · Digital Design</div>
-              <span class="project-badge" data-i18n="badgeImplementation">Implementation</span>
+              <span class="project-badge" data-i18n="badgeDigitalRtl">Digital RTL Implementation</span>
             </div>
             <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15c2 0 2-6 4-6s2 10 4 10 2-14 4-14 2 6 4 6 2-2 2-2"></path></svg></span><span data-i18n="proj3Title">64-Tap 16-Bit FIR Digital Filter Core</span></h3>
             <p class="muted" data-i18n="proj3Body">
@@ -803,7 +808,7 @@
         <p class="section-desc" data-i18n="contactDesc">Make it easy for recruiters or professors to reach you.</p>
         <div class="card">
           <p><span data-i18n="contactEmail">Email</span>: <a href="mailto:lw3227@columbia.edu">lw3227@columbia.edu</a></p>
-          <p><span data-i18n="contactResume">Resume</span>: <a href="Linxiao Wu Resume.pdf" target="_blank">Linxiao Wu Resume.pdf</a></p>
+          <p><span data-i18n="contactResume">Resume</span>: <a id="contact-resume-link" href="Linxiao Wu.pdf" target="_blank">Linxiao Wu.pdf</a></p>
           <p>GitHub: <a href="https://github.com/lw3227" target="_blank">github.com/lw3227</a></p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/linxiao-wu" target="_blank">linkedin.com/in/linxiao-wu</a></p>
         </div>
@@ -850,10 +855,10 @@
         ugGroupTitle: "Undergraduate Projects at SYSU",
         ugGroupDesc: "Projects completed during my undergraduate years at Sun Yat-sen University, mainly spanning data converters and FPGA-based systems.",
         proj1Meta: "Feb 2026 - Present · Apple-Sponsored Tape-Out Project",
-        badgeFeatured: "Featured",
-        badgeArchitecture: "Architecture",
-        badgeImplementation: "Implementation",
-        badgeVerification: "Verification",
+        badgeAiChip: "AI Chip",
+        badgeArchitecture: "ARCHITECTURE",
+        badgeDigitalRtl: "Digital RTL Implementation",
+        badgeVerification: "Formal Verification",
         badgeCircuit: "Circuit Design",
         badgeResearch: "Research",
         badgeAward: "Award",
@@ -866,10 +871,12 @@
         proj1Note: "This tape-out project is still in progress. The linked datasheet captures an early architectural concept and does not reflect the final scope or outcome of the project. The public repository currently contains only the CNN training and quantization flow, not the RTL implementation.",
         proj2Meta: "Mar 2026 - Present · Computer Architecture",
         proj2Title: "Out-of-Order RISC-V Processor",
-        proj2Body: "Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table, reservation stations, physical register file, precise commit, and speculative recovery support.",
-        proj2Item1: "Implemented key OoO structures including rename, issue, commit, and recovery logic.",
-        proj2Item2: "Focused on precise architectural state, dependency tracking, and speculation-safe execution.",
-        proj2Item3: "Used the project to deepen understanding of performance-oriented CPU microarchitecture.",
+        proj2Body: "Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table, reservation stations, physical register file, precise commit, speculative recovery support, and multi-stage execution coordination across the pipeline.",
+        proj2Item1: "Implemented core OoO structures including register renaming, reservation-station scheduling, ROB-based commit, and branch-misprediction recovery logic.",
+        proj2Item2: "Designed the interaction between issue, execute, writeback, and commit stages to maintain precise architectural state under speculation.",
+        proj2Item3: "Worked through data hazards, dependency tracking, and rollback behavior to better understand performance-oriented CPU microarchitecture.",
+        proj2Item4: "Used the project to connect classroom architecture concepts with concrete RTL-level control and datapath design decisions.",
+        proj2Note: "This processor project is still a work in progress, and the current description reflects the architecture and implementation scope completed so far.",
         proj3Meta: "Oct 2025 - Dec 2025 · Digital Design",
         proj3Title: "64-Tap 16-Bit FIR Digital Filter Core",
         proj3Body: "Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller, and a dual-clock FIFO for clock-domain crossing. Completed RTL, synthesis, STA, and post-synthesis verification.",
@@ -918,6 +925,7 @@
         contactDesc: "Feel free to reach out for research, internship, or full-time opportunities.",
         contactEmail: "Email",
         contactResume: "Resume",
+        resumeFile: "Linxiao Wu.pdf",
         footer: "© 2026 Linxiao Wu. Built with a simple single-file template.",
         tagCnn: "CNN Accelerator",
         tagSystolic: "Systolic Array",
@@ -966,13 +974,13 @@
         ugGroupTitle: "中山大学本科阶段项目",
         ugGroupDesc: "以下项目主要完成于本科阶段，集中在 SAR ADC、时间交织架构和 FPGA 系统设计。",
         proj1Meta: "2026 年 2 月至今 · Apple 支持的流片项目",
-        badgeFeatured: "重点项目",
-        badgeArchitecture: "体系结构",
-        badgeImplementation: "实现流程",
-        badgeVerification: "验证",
+        badgeAiChip: "AI Chip",
+        badgeArchitecture: "ARCHITECTURE",
+        badgeDigitalRtl: "Digital RTL Implementation",
+        badgeVerification: "形式验证",
         badgeCircuit: "电路设计",
         badgeResearch: "科研",
-        badgeAward: "获奖项目",
+        badgeAward: "获奖",
         badgeSystem: "系统实现",
         proj1Title: "基于脉动阵列的手势识别 CNN 加速器",
         proj1Body: "面向 65 nm 工艺下 64x64 灰度手势识别任务，设计纯硬件 INT8 CNN 加速器 ASIC，包括 64 个 PE 的脉动阵列、片上 SRAM 架构、完整 RTL 实现、综合、布局布线、时序收敛和版图后验证。",
@@ -982,10 +990,12 @@
         proj1Note: "该流片项目目前仍在进行中，当前链接的 datasheet 仅展示项目早期架构概念，并不代表最终范围或成果。公开仓库暂时只包含 CNN 训练与量化模型流程，不展示 RTL 实现部分。",
         proj2Meta: "2026 年 3 月至今 · 计算机体系结构",
         proj2Title: "乱序执行 RISC-V 处理器",
-        proj2Body: "设计 P6 风格的乱序执行 RISC-V 微架构，包含 ROB、寄存器重命名表、保留站、物理寄存器文件、精确提交以及投机恢复机制。",
-        proj2Item1: "实现重命名、发射、提交和错误恢复等关键乱序执行结构。",
-        proj2Item2: "重点处理精确体系结构状态、数据相关跟踪和安全投机执行。",
-        proj2Item3: "通过该项目深入理解以性能为导向的 CPU 微架构设计。",
+        proj2Body: "设计 P6 风格的乱序执行 RISC-V 微架构，包含 ROB、寄存器重命名表、保留站、物理寄存器文件、精确提交、投机恢复机制，以及跨流水级的执行协调逻辑。",
+        proj2Item1: "实现寄存器重命名、保留站调度、基于 ROB 的提交，以及分支预测失败后的恢复等核心乱序执行结构。",
+        proj2Item2: "梳理发射、执行、写回和提交阶段之间的交互，在投机执行条件下维持精确体系结构状态。",
+        proj2Item3: "围绕数据冒险、依赖跟踪和回滚行为展开设计，加深对高性能 CPU 微架构的理解。",
+        proj2Item4: "通过该项目把课堂中的体系结构概念落实到具体的 RTL 控制逻辑和数据通路设计决策中。",
+        proj2Note: "该处理器项目目前仍在进行中，当前页面中的描述主要对应目前已经完成的架构设计与实现范围。",
         proj3Meta: "2025 年 10 月 - 2025 年 12 月 · 数字设计",
         proj3Title: "64 阶 16 位 FIR 数字滤波器核心",
         proj3Body: "设计定点 FIR 核心，包含乘累加数据通路、CMEM/IMEM、基于 FSM 的控制器，以及用于跨时钟域的双时钟 FIFO，并完成 RTL、综合、静态时序分析和综合后验证。",
@@ -1034,6 +1044,7 @@
         contactDesc: "欢迎联系我讨论科研、实习或全职机会。",
         contactEmail: "邮箱",
         contactResume: "简历",
+        resumeFile: "吴林晓.pdf",
         footer: "© 2026 吴林晓。页面采用单文件静态模板构建。",
         tagCnn: "CNN 加速器",
         tagSystolic: "脉动阵列",
@@ -1052,6 +1063,8 @@
     };
 
     const langToggle = document.getElementById("lang-toggle");
+    const resumeLink = document.getElementById("resume-link");
+    const contactResumeLink = document.getElementById("contact-resume-link");
     const translatableNodes = document.querySelectorAll("[data-i18n]");
     const savedLang = localStorage.getItem("site-language");
     let currentLang = savedLang || "en";
@@ -1068,6 +1081,12 @@
           node.textContent = copy[key];
         }
       });
+
+      if (copy.resumeFile) {
+        resumeLink.href = copy.resumeFile;
+        contactResumeLink.href = copy.resumeFile;
+        contactResumeLink.textContent = copy.resumeFile;
+      }
 
       langToggle.textContent = copy.toggle;
       localStorage.setItem("site-language", lang);

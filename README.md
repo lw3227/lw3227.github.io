@@ -17,7 +17,8 @@ The site is a lightweight single-page portfolio for presenting:
 
 - [index.html](/Users/linxiao/Library/Mobile Documents/com~apple~CloudDocs/cv/HTML/index.html): main website page
 - [project](/Users/linxiao/Library/Mobile Documents/com~apple~CloudDocs/cv/HTML/project): project PDFs linked from the site
-- [Linxiao Wu Resume.pdf](/Users/linxiao/Library/Mobile Documents/com~apple~CloudDocs/cv/HTML/Linxiao Wu Resume.pdf): resume file used by the website
+- [Linxiao Wu.pdf](/Users/linxiao/Library/Mobile Documents/com~apple~CloudDocs/cv/HTML/Linxiao Wu.pdf): English resume file used by the website
+- [吴林晓.pdf](/Users/linxiao/Library/Mobile Documents/com~apple~CloudDocs/cv/HTML/吴林晓.pdf): Chinese resume file used by the website
 
 ## Notes
 
