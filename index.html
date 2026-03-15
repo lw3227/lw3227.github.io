@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linxiao Wu | Personal Website</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --card: rgba(15, 23, 42, 0.82);
+      --text: #e5eefc;
+      --muted: #9fb0c9;
+      --line: rgba(148, 163, 184, 0.18);
+      --accent: #7dd3fc;
+      --accent-2: #c4b5fd;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(196, 181, 253, 0.12), transparent 24%),
+        linear-gradient(180deg, #08111f 0%, #0c172a 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text);
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: rgba(24, 36, 64, 0.98);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #7dd3fc, #c4b5fd);
+      color: #07111f;
+      border: none;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(125, 211, 252, 0.18);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-card h3,
+    .section h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project h3,
+    .timeline h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .meta {
+      font-size: 14px;
+      color: var(--accent-2);
+      margin-bottom: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(24, 34, 64, 0.88);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 32px 0 56px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Linxiao Wu</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">M.S. in Electrical Engineering · Columbia University</div>
+        <h1>Hi, I'm Linxiao Wu.</h1>
+        <p class="subtitle">
+          I am a graduate student in Electrical Engineering at Columbia University focused on ASIC design,
+          digital VLSI, computer architecture, and hardware acceleration for machine learning.
+          My work spans RTL design, verification, synthesis, place-and-route, and post-layout analysis.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="mailto:lw3227@columbia.edu">Email Me</a>
+          <a class="btn" href="Linxiao_Wu_Resume.pdf" target="_blank">Download Resume</a>
+          <a class="btn" href="https://github.com/lw3227" target="_blank">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/linxiao-wu" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="card hero-card">
+        <h3>Quick Info</h3>
+        <ul>
+          <li>M.S. student in Electrical Engineering at Columbia University</li>
+          <li>GPA: 4.082/4.0, expected graduation: Dec 2026</li>
+          <li>Interested in ASIC design, RTL, verification, and ML accelerators</li>
+          <li>Tools: Cadence, Synopsys, JasperGold, Verilog, SystemVerilog, Python, MATLAB</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p class="section-desc">
+          A graduate electrical engineering student with hands-on experience in digital IC design,
+          formal verification, and hardware accelerator development.
+        </p>
+        <div class="card">
+          <p class="muted">
+            I am currently pursuing an M.S. in Electrical Engineering at Columbia University after completing my
+            B.Eng. in Microelectronic Science and Engineering at Sun Yat-sen University. My interests include
+            ASIC implementation, digital architecture, formal verification, and efficient ML hardware. I enjoy building
+            systems end-to-end, from architecture exploration and RTL design to physical implementation and performance analysis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected Projects</h2>
+        <p class="section-desc">Selected work across ASIC design, computer architecture, and formal verification.</p>
+        <div class="grid">
+          <article class="card project">
+            <div class="meta">Feb 2026 – Present · Apple-Sponsored Tape-Out Project</div>
+            <h3>Systolic Array-Based CNN Accelerator for Gesture Recognition</h3>
+            <p class="muted">
+              Designed a pure-hardware INT8 CNN accelerator ASIC for 64×64 grayscale gesture recognition in 65 nm,
+              including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation,
+              synthesis, place-and-route, timing closure, and post-layout verification.
+            </p>
+            <ul class="muted">
+              <li>Architected a compute-and-memory pipeline around a systolic array and local SRAM buffering for efficient CNN inference.</li>
+              <li>Completed the end-to-end digital flow from RTL to backend implementation and signoff-oriented analysis.</li>
+              <li>Co-optimized model structure and hardware cost for a gesture-recognition tape-out project.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">ASIC</span>
+              <span class="tag">CNN Accelerator</span>
+              <span class="tag">Systolic Array</span>
+              <span class="tag">Cadence Flow</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta">Mar 2026 – Present · Computer Architecture</div>
+            <h3>Out-of-Order RISC-V Processor</h3>
+            <p class="muted">
+              Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table,
+              reservation stations, physical register file, precise commit, and speculative recovery support.
+            </p>
+            <ul class="muted">
+              <li>Implemented key OoO structures including rename, issue, commit, and recovery logic.</li>
+              <li>Focused on precise architectural state, dependency tracking, and speculation-safe execution.</li>
+              <li>Used the project to deepen understanding of performance-oriented CPU microarchitecture.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">RISC-V</span>
+              <span class="tag">OoO Core</span>
+              <span class="tag">Microarchitecture</span>
+              <span class="tag">RTL</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta">Oct 2025 – Dec 2025 · Digital Design</div>
+            <h3>64-Tap 16-Bit FIR Digital Filter Core</h3>
+            <p class="muted">
+              Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller,
+              and a dual-clock FIFO for clock-domain crossing. Completed RTL, synthesis, STA, and post-synthesis verification.
+            </p>
+            <ul class="muted">
+              <li>Built a complete digital signal-processing pipeline around a parameterized FIR core.</li>
+              <li>Integrated dual-clock FIFO logic to handle CDC between low-speed input and high-speed compute domains.</li>
+              <li>Validated the design through synthesis and timing analysis using industry-standard EDA tools.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">FIR</span>
+              <span class="tag">CDC FIFO</span>
+              <span class="tag">Design Compiler</span>
+              <span class="tag">PrimeTime</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta">Oct 2025 – Dec 2025 · Formal Verification</div>
+            <h3>Formal Verification of an N-Body Hardware Accelerator</h3>
+            <p class="muted">
+              Wrote SVA assertions, assumptions, and cover properties in JasperGold to verify FSM transitions,
+              loop-control behavior, and pointer bounds, uncovering corner-case bugs not exposed by simulation.
+            </p>
+            <ul class="muted">
+              <li>Developed property sets for safety, liveness, and legal state progression.</li>
+              <li>Used formal methods to expose corner cases that would be difficult to hit with directed simulation alone.</li>
+              <li>Strengthened understanding of hardware correctness beyond waveform-based debugging.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Formal Verification</span>
+              <span class="tag">JasperGold</span>
+              <span class="tag">SVA</span>
+              <span class="tag">Debug</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2>Experience</h2>
+        <p class="section-desc">Selected experience and background.</p>
+        <div class="grid">
+          <article class="card timeline">
+            <div class="meta">Guangzhou CanSemi Technology Inc. · Jul 2024 – Sep 2024</div>
+            <h3>TCAD / Device Engineering Intern</h3>
+            <p class="muted">
+              Calibrated a 32 V PMOS TCAD model to foundry recipe data, supported wafer electrical characterization and WAT analysis,
+              and simulated two IGBT structures with contributions to a patent application for a novel device design.
+            </p>
+          </article>
+          <article class="card timeline">
+            <div class="meta">Education</div>
+            <h3>Columbia University / Sun Yat-sen University</h3>
+            <p class="muted">
+              M.S. in Electrical Engineering at Columbia University and B.Eng. in Microelectronic Science and Engineering at Sun Yat-sen University.
+              Coursework includes VLSI design, advanced logic design, hardware design, and formal verification.
+            </p>
+          </article>
+        </div>
+            <h3>Internship or Research Position</h3>
+            <p class="muted">
+              Add 2–3 lines describing what you built, measured, or improved. Keep it concrete.
+            </p>
+          </article>
+          <article class="card timeline">
+            <div class="meta">University · Date</div>
+            <h3>Teaching / Team / Student Project</h3>
+            <p class="muted">
+              Add anything that shows collaboration, ownership, or technical depth.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="section-desc">Make it easy for recruiters or professors to reach you.</p>
+        <div class="card">
+          <p>Email: <a href="mailto:lw3227@columbia.edu">lw3227@columbia.edu</a></p>
+          <p>Resume: <a href="Linxiao_Wu_Resume.pdf" target="_blank">Linxiao_Wu_Resume.pdf</a></p>
+          <p>GitHub: <a href="https://github.com/lw3227" target="_blank">github.com/lw3227</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/linxiao-wu" target="_blank">linkedin.com/in/linxiao-wu</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>© 2026 Linxiao Wu. Built with a simple single-file template.</p>
+  </footer>
+</body>
+</html>
