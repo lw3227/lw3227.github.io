@@ -103,7 +103,7 @@
       display: grid;
       grid-template-columns: 1.4fr 0.9fr;
       gap: 24px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .eyebrow {
@@ -132,6 +132,49 @@
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 18px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(180deg, rgba(18, 28, 52, 0.92), rgba(11, 20, 38, 0.92)),
+        var(--card);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -45% auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 211, 252, 0.28), transparent 65%);
+      pointer-events: none;
+    }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
     }
 
     .btn {
@@ -174,9 +217,78 @@
       letter-spacing: -0.02em;
     }
 
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top right, rgba(196, 181, 253, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(11, 20, 38, 0.96));
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -48px;
+      top: -38px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(125, 211, 252, 0.15);
+      box-shadow:
+        0 0 0 22px rgba(125, 211, 252, 0.05),
+        0 0 0 48px rgba(196, 181, 253, 0.04);
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hero-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.12);
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
     .hero-card ul {
       margin: 10px 0 0;
       padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .hero-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(9, 16, 31, 0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .mini-card span {
+      font-size: 13px;
       color: var(--muted);
     }
 
@@ -220,6 +332,49 @@
     .timeline h3 {
       margin: 0 0 8px;
       font-size: 20px;
+    }
+
+    .project {
+      position: relative;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 0;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: rgba(125, 211, 252, 0.22);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .project-badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(196, 181, 253, 0.22);
+      background: rgba(196, 181, 253, 0.09);
+      color: var(--accent-2);
     }
 
     .meta {
@@ -289,6 +444,11 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-stats,
+      .hero-mini-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero {
         padding-top: 48px;
       }
@@ -333,20 +493,55 @@
         <div class="actions">
           <a class="btn primary" href="#projects" data-i18n="ctaProjects">View Projects</a>
           <a class="btn" href="mailto:lw3227@columbia.edu" data-i18n="ctaEmail">Email Me</a>
-          <a class="btn" href="Linxiao_Wu_Resume.pdf" target="_blank" data-i18n="ctaResume">Download Resume</a>
+          <a class="btn" href="Linxiao Wu Resume.pdf" target="_blank" data-i18n="ctaResume">Download Resume</a>
           <a class="btn" href="https://github.com/lw3227" target="_blank">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/linxiao-wu" target="_blank">LinkedIn</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-value" data-i18n="stat1Value">Summer 2026</div>
+            <div class="stat-label" data-i18n="stat1Label">Internship availability window</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-i18n="stat2Value">4.082</div>
+            <div class="stat-label" data-i18n="stat2Label">Columbia EE GPA</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-i18n="stat3Value">8+</div>
+            <div class="stat-label" data-i18n="stat3Label">Highlighted hardware projects</div>
+          </div>
         </div>
       </div>
 
       <div class="card hero-card">
-        <h3 data-i18n="quickInfoTitle">Quick Info</h3>
+        <div class="hero-card-header">
+          <h3 data-i18n="quickInfoTitle">Quick Info</h3>
+          <span class="hero-chip" data-i18n="heroChip">Open to Internships</span>
+        </div>
         <ul>
           <li data-i18n="quick1">M.S. student in Electrical Engineering at Columbia University</li>
           <li data-i18n="quick2">GPA: 4.082/4.0, expected graduation: Dec 2026</li>
           <li data-i18n="quick3">Seeking a Summer 2026 internship, available from mid-May to early September</li>
           <li data-i18n="quick4">Tools: Cadence, Synopsys, JasperGold, Verilog, SystemVerilog, Python, MATLAB</li>
         </ul>
+        <div class="hero-mini-grid">
+          <div class="mini-card">
+            <strong data-i18n="mini1Value">ASIC Flow</strong>
+            <span data-i18n="mini1Label">RTL to synthesis, place-and-route, timing closure, and post-layout analysis</span>
+          </div>
+          <div class="mini-card">
+            <strong data-i18n="mini2Value">Verification</strong>
+            <span data-i18n="mini2Label">Formal verification, assertions, debugging, and architecture validation</span>
+          </div>
+          <div class="mini-card">
+            <strong data-i18n="mini3Value">Architecture</strong>
+            <span data-i18n="mini3Label">RISC-V microarchitecture, accelerators, and memory-aware datapaths</span>
+          </div>
+          <div class="mini-card">
+            <strong data-i18n="mini4Value">Tooling</strong>
+            <span data-i18n="mini4Label">Cadence, Synopsys, JasperGold, MATLAB, Python, Verilog/SystemVerilog</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -376,7 +571,10 @@
         <p class="section-desc" data-i18n="projectsDesc">Selected work across ASIC design, computer architecture, and formal verification.</p>
         <div class="grid">
           <article class="card project">
-            <div class="meta" data-i18n="proj1Meta">Feb 2026 - Present · Apple-Sponsored Tape-Out Project</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj1Meta">Feb 2026 - Present · Apple-Sponsored Tape-Out Project</div>
+              <span class="project-badge" data-i18n="badgeFeatured">Featured</span>
+            </div>
             <h3 data-i18n="proj1Title">Systolic Array-Based CNN Accelerator for Gesture Recognition</h3>
             <p class="muted" data-i18n="proj1Body">
               Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm,
@@ -404,7 +602,10 @@
           </article>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj2Meta">Mar 2026 - Present · Computer Architecture</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj2Meta">Mar 2026 - Present · Computer Architecture</div>
+              <span class="project-badge" data-i18n="badgeArchitecture">Architecture</span>
+            </div>
             <h3 data-i18n="proj2Title">Out-of-Order RISC-V Processor</h3>
             <p class="muted" data-i18n="proj2Body">
               Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table,
@@ -424,7 +625,10 @@
           </article>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj3Meta">Oct 2025 - Dec 2025 · Digital Design</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj3Meta">Oct 2025 - Dec 2025 · Digital Design</div>
+              <span class="project-badge" data-i18n="badgeImplementation">Implementation</span>
+            </div>
             <h3 data-i18n="proj3Title">64-Tap 16-Bit FIR Digital Filter Core</h3>
             <p class="muted" data-i18n="proj3Body">
               Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller,
@@ -448,7 +652,10 @@
           </article>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj4Meta">Oct 2025 - Dec 2025 · Formal Verification</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj4Meta">Oct 2025 - Dec 2025 · Formal Verification</div>
+              <span class="project-badge" data-i18n="badgeVerification">Verification</span>
+            </div>
             <h3 data-i18n="proj4Title">Formal Verification of an N-Body Hardware Accelerator</h3>
             <p class="muted" data-i18n="proj4Body">
               Wrote SVA assertions, assumptions, and cover properties in JasperGold to verify FSM transitions,
@@ -472,7 +679,10 @@
           </article>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj5Meta">Oct 2025 - Dec 2025 · Digital IC Design</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj5Meta">Oct 2025 - Dec 2025 · Digital IC Design</div>
+              <span class="project-badge" data-i18n="badgeCircuit">Circuit Design</span>
+            </div>
             <h3 data-i18n="proj5Title">8-Bit Microcontroller Core Design</h3>
             <p class="muted" data-i18n="proj5Body">
               Completed transistor-level design of an accumulator-based 8-bit microcontroller in TSMC 65 nm using a custom 6-bit ISA, including schematic, layout, verification, and post-layout analysis.
@@ -499,7 +709,10 @@
           </div>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj4aMeta">Sep 2024 - May 2025 · Undergraduate Thesis</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj4aMeta">Sep 2024 - May 2025 · Undergraduate Thesis</div>
+              <span class="project-badge" data-i18n="badgeResearch">Research</span>
+            </div>
             <h3 data-i18n="proj4aTitle">High-Precision SAR ADC Design and Digital Calibration</h3>
             <p class="muted" data-i18n="proj4aBody">
               Joined Associate Professor Xing Xinpeng's research group in senior year to design and verify a capacitor-mismatch digital calibration scheme for a 0.18 um 16-bit SAR ADC.
@@ -522,7 +735,10 @@
           </article>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj4bMeta">2024 · CICC South China Division Second Prize</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj4bMeta">2024 · CICC South China Division Second Prize</div>
+              <span class="project-badge" data-i18n="badgeAward">Award</span>
+            </div>
             <h3 data-i18n="proj4bTitle">8-Bit 10 GSPS Time-Interleaved SAR ADC</h3>
             <p class="muted" data-i18n="proj4bBody">
               Participated in the National College IC Innovation and Entrepreneurship Competition and designed an 8-bit 10 GSPS time-interleaved SAR ADC in TSMC 40 nm.
@@ -544,7 +760,10 @@
           </article>
 
           <article class="card project">
-            <div class="meta" data-i18n="proj6Meta">2024 · University Innovation Project</div>
+            <div class="project-top">
+              <div class="meta" data-i18n="proj6Meta">2024 · University Innovation Project</div>
+              <span class="project-badge" data-i18n="badgeSystem">System Build</span>
+            </div>
             <h3 data-i18n="proj6Title">FPGA-Based Portable Electronic Test System</h3>
             <p class="muted" data-i18n="proj6Body">
               Built a portable electronic test system integrating a signal generator and oscilloscope on FPGA, and received a university-level excellence award.
@@ -600,7 +819,7 @@
         <p class="section-desc" data-i18n="contactDesc">Make it easy for recruiters or professors to reach you.</p>
         <div class="card">
           <p><span data-i18n="contactEmail">Email</span>: <a href="mailto:lw3227@columbia.edu">lw3227@columbia.edu</a></p>
-          <p><span data-i18n="contactResume">Resume</span>: <a href="Linxiao_Wu_Resume.pdf" target="_blank">Linxiao_Wu_Resume.pdf</a></p>
+          <p><span data-i18n="contactResume">Resume</span>: <a href="Linxiao Wu Resume.pdf" target="_blank">Linxiao Wu Resume.pdf</a></p>
           <p>GitHub: <a href="https://github.com/lw3227" target="_blank">github.com/lw3227</a></p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/linxiao-wu" target="_blank">linkedin.com/in/linxiao-wu</a></p>
         </div>
@@ -624,14 +843,29 @@
         eyebrow: "M.S. in Electrical Engineering · Columbia University",
         heroTitle: "Hi, I'm Linxiao Wu.",
         heroSubtitle: "I am an M.S. student in Electrical Engineering at Columbia University with interests in ASIC design flow, digital circuit design, formal verification, RISC-V microarchitecture, and hardware acceleration for machine learning. I am currently seeking a Summer 2026 internship and available from mid-May to early September.",
+        stat1Value: "Summer 2026",
+        stat1Label: "Internship availability window",
+        stat2Value: "4.082",
+        stat2Label: "Columbia EE GPA",
+        stat3Value: "8+",
+        stat3Label: "Highlighted hardware projects",
         ctaProjects: "View Projects",
         ctaEmail: "Email Me",
         ctaResume: "Download Resume",
         quickInfoTitle: "Quick Info",
+        heroChip: "Open to Internships",
         quick1: "M.S. in Electrical Engineering, Columbia University",
         quick2: "GPA: 4.082/4.0, expected graduation: Dec 2026",
         quick3: "Seeking a Summer 2026 internship, available from mid-May to early September",
         quick4: "Tools: Cadence, Synopsys, JasperGold, QuestaSim, Verilog, SystemVerilog, Python, MATLAB",
+        mini1Value: "ASIC Flow",
+        mini1Label: "RTL to synthesis, place-and-route, timing closure, and post-layout analysis",
+        mini2Value: "Verification",
+        mini2Label: "Formal verification, assertions, debugging, and architecture validation",
+        mini3Value: "Architecture",
+        mini3Label: "RISC-V microarchitecture, accelerators, and memory-aware datapaths",
+        mini4Value: "Tooling",
+        mini4Label: "Cadence, Synopsys, JasperGold, MATLAB, Python, Verilog/SystemVerilog",
         aboutTitle: "About",
         aboutDesc: "Graduate electrical engineering student with hands-on experience in digital IC design, formal verification, and accelerator-oriented hardware development.",
         aboutBody: "I am currently pursuing an M.S. in Electrical Engineering at Columbia University after earning my B.Eng. in Microelectronic Science and Engineering from Sun Yat-Sen University. My coursework and projects span VLSI design, digital VLSI circuits, advanced logic design, computer hardware design, and formal verification. I enjoy building hardware systems end-to-end, from architecture and RTL to backend implementation and post-layout analysis.",
@@ -640,6 +874,14 @@
         ugGroupTitle: "Undergraduate Projects at SYSU",
         ugGroupDesc: "Projects completed during my undergraduate years at Sun Yat-sen University, mainly spanning data converters and FPGA-based systems.",
         proj1Meta: "Feb 2026 - Present · Apple-Sponsored Tape-Out Project",
+        badgeFeatured: "Featured",
+        badgeArchitecture: "Architecture",
+        badgeImplementation: "Implementation",
+        badgeVerification: "Verification",
+        badgeCircuit: "Circuit Design",
+        badgeResearch: "Research",
+        badgeAward: "Award",
+        badgeSystem: "System Build",
         proj1Title: "Systolic Array-Based CNN Accelerator for Gesture Recognition",
         proj1Body: "Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm, including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation, synthesis, place-and-route, timing closure, and post-layout verification.",
         proj1Item1: "Architected a compute-and-memory pipeline around a systolic array and local SRAM buffering for efficient CNN inference.",
@@ -725,14 +967,29 @@
         eyebrow: "哥伦比亚大学电子工程硕士",
         heroTitle: "你好，我是吴林晓。",
         heroSubtitle: "我目前在哥伦比亚大学攻读电子工程硕士，关注 ASIC 设计流程、数字电路设计、形式化验证、RISC-V 微架构，以及面向机器学习的硬件加速。目前正在寻找 2026 年暑期实习，可工作的时间为 5 月中旬到 9 月初。",
+        stat1Value: "2026 暑期",
+        stat1Label: "实习可入职时间",
+        stat2Value: "4.082",
+        stat2Label: "哥大电子工程 GPA",
+        stat3Value: "8+",
+        stat3Label: "重点展示硬件项目",
         ctaProjects: "查看项目",
         ctaEmail: "给我发邮件",
         ctaResume: "下载简历",
         quickInfoTitle: "快速信息",
+        heroChip: "可实习",
         quick1: "哥伦比亚大学电子工程硕士",
         quick2: "GPA：4.082/4.0，预计毕业时间：2026 年 12 月",
         quick3: "正在寻找 2026 年暑期实习，可工作的时间为 5 月中旬到 9 月初",
         quick4: "工具：Cadence、Synopsys、JasperGold、QuestaSim、Verilog、SystemVerilog、Python、MATLAB",
+        mini1Value: "ASIC 流程",
+        mini1Label: "覆盖 RTL、综合、布局布线、时序收敛和版图后分析",
+        mini2Value: "验证",
+        mini2Label: "包括形式验证、断言编写、调试和架构正确性验证",
+        mini3Value: "架构",
+        mini3Label: "涵盖 RISC-V 微架构、加速器设计和面向存储的数据通路",
+        mini4Value: "工具链",
+        mini4Label: "Cadence、Synopsys、JasperGold、MATLAB、Python、Verilog/SystemVerilog",
         aboutTitle: "关于我",
         aboutDesc: "电子工程硕士研究生，具备数字集成电路设计、形式化验证和硬件加速器开发的实践经验。",
         aboutBody: "我目前在哥伦比亚大学攻读电子工程硕士，此前于中山大学完成微电子科学与工程本科。我的课程与项目覆盖 VLSI 设计实验、数字 VLSI 电路设计、高级逻辑设计、计算机硬件架构与形式化验证。我喜欢从系统层面完整推进硬件项目，从架构设计与 RTL 实现，一直到后端实现和版图后分析。",
@@ -741,6 +998,14 @@
         ugGroupTitle: "中山大学本科阶段项目",
         ugGroupDesc: "以下项目主要完成于本科阶段，集中在 SAR ADC、时间交织架构和 FPGA 系统设计。",
         proj1Meta: "2026 年 2 月至今 · Apple 支持的流片项目",
+        badgeFeatured: "重点项目",
+        badgeArchitecture: "体系结构",
+        badgeImplementation: "实现流程",
+        badgeVerification: "验证",
+        badgeCircuit: "电路设计",
+        badgeResearch: "科研",
+        badgeAward: "获奖项目",
+        badgeSystem: "系统实现",
         proj1Title: "基于脉动阵列的手势识别 CNN 加速器",
         proj1Body: "面向 65 nm 工艺下 64x64 灰度手势识别任务，设计纯硬件 INT8 CNN 加速器 ASIC，包括 64 个 PE 的脉动阵列、片上 SRAM 架构、完整 RTL 实现、综合、布局布线、时序收敛和版图后验证。",
         proj1Item1: "围绕脉动阵列和本地 SRAM 缓冲设计计算与存储协同的数据通路，以提升 CNN 推理效率。",
