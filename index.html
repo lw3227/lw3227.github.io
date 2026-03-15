@@ -103,7 +103,7 @@
       display: grid;
       grid-template-columns: 1.4fr 0.9fr;
       gap: 24px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .eyebrow {
@@ -266,32 +266,6 @@
       color: var(--muted);
     }
 
-    .hero-mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .mini-card {
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(9, 16, 31, 0.6);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 17px;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    .mini-card span {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
     .section {
       padding: 28px 0;
     }
@@ -332,6 +306,35 @@
     .timeline h3 {
       margin: 0 0 8px;
       font-size: 20px;
+    }
+
+    .project-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.14), rgba(196, 181, 253, 0.14));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .project-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .project {
@@ -444,8 +447,7 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-stats,
-      .hero-mini-grid {
+      .hero-stats {
         grid-template-columns: 1fr;
       }
 
@@ -524,24 +526,6 @@
           <li data-i18n="quick3">Seeking a Summer 2026 internship, available from mid-May to early September</li>
           <li data-i18n="quick4">Tools: Cadence, Synopsys, JasperGold, Verilog, SystemVerilog, Python, MATLAB</li>
         </ul>
-        <div class="hero-mini-grid">
-          <div class="mini-card">
-            <strong data-i18n="mini1Value">ASIC Flow</strong>
-            <span data-i18n="mini1Label">RTL to synthesis, place-and-route, timing closure, and post-layout analysis</span>
-          </div>
-          <div class="mini-card">
-            <strong data-i18n="mini2Value">Verification</strong>
-            <span data-i18n="mini2Label">Formal verification, assertions, debugging, and architecture validation</span>
-          </div>
-          <div class="mini-card">
-            <strong data-i18n="mini3Value">Architecture</strong>
-            <span data-i18n="mini3Label">RISC-V microarchitecture, accelerators, and memory-aware datapaths</span>
-          </div>
-          <div class="mini-card">
-            <strong data-i18n="mini4Value">Tooling</strong>
-            <span data-i18n="mini4Label">Cadence, Synopsys, JasperGold, MATLAB, Python, Verilog/SystemVerilog</span>
-          </div>
-        </div>
       </div>
     </div>
   </header>
@@ -575,7 +559,7 @@
               <div class="meta" data-i18n="proj1Meta">Feb 2026 - Present · Apple-Sponsored Tape-Out Project</div>
               <span class="project-badge" data-i18n="badgeFeatured">Featured</span>
             </div>
-            <h3 data-i18n="proj1Title">Systolic Array-Based CNN Accelerator for Gesture Recognition</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"></rect><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M6 18l1.5-1.5"></path></svg></span><span data-i18n="proj1Title">Systolic Array-Based CNN Accelerator for Gesture Recognition</span></h3>
             <p class="muted" data-i18n="proj1Body">
               Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm,
               including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation,
@@ -606,7 +590,7 @@
               <div class="meta" data-i18n="proj2Meta">Mar 2026 - Present · Computer Architecture</div>
               <span class="project-badge" data-i18n="badgeArchitecture">Architecture</span>
             </div>
-            <h3 data-i18n="proj2Title">Out-of-Order RISC-V Processor</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="12" rx="2"></rect><path d="M8 10h8M8 14h5M3 9h2M3 15h2M19 9h2M19 15h2"></path></svg></span><span data-i18n="proj2Title">Out-of-Order RISC-V Processor</span></h3>
             <p class="muted" data-i18n="proj2Body">
               Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table,
               reservation stations, physical register file, precise commit, and speculative recovery support.
@@ -629,7 +613,7 @@
               <div class="meta" data-i18n="proj3Meta">Oct 2025 - Dec 2025 · Digital Design</div>
               <span class="project-badge" data-i18n="badgeImplementation">Implementation</span>
             </div>
-            <h3 data-i18n="proj3Title">64-Tap 16-Bit FIR Digital Filter Core</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15c2 0 2-6 4-6s2 10 4 10 2-14 4-14 2 6 4 6 2-2 2-2"></path></svg></span><span data-i18n="proj3Title">64-Tap 16-Bit FIR Digital Filter Core</span></h3>
             <p class="muted" data-i18n="proj3Body">
               Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller,
               and a dual-clock FIFO for clock-domain crossing. Completed RTL, synthesis, STA, and post-synthesis verification.
@@ -656,7 +640,7 @@
               <div class="meta" data-i18n="proj4Meta">Oct 2025 - Dec 2025 · Formal Verification</div>
               <span class="project-badge" data-i18n="badgeVerification">Verification</span>
             </div>
-            <h3 data-i18n="proj4Title">Formal Verification of an N-Body Hardware Accelerator</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12l4 4 8-8"></path><path d="M12 3l7 3v6c0 4.5-3 7-7 9-4-2-7-4.5-7-9V6l7-3z"></path></svg></span><span data-i18n="proj4Title">Formal Verification of an N-Body Hardware Accelerator</span></h3>
             <p class="muted" data-i18n="proj4Body">
               Wrote SVA assertions, assumptions, and cover properties in JasperGold to verify FSM transitions,
               loop-control behavior, and pointer bounds, uncovering corner-case bugs not exposed by simulation.
@@ -683,7 +667,7 @@
               <div class="meta" data-i18n="proj5Meta">Oct 2025 - Dec 2025 · Digital IC Design</div>
               <span class="project-badge" data-i18n="badgeCircuit">Circuit Design</span>
             </div>
-            <h3 data-i18n="proj5Title">8-Bit Microcontroller Core Design</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="12" rx="2"></rect><path d="M9 10h6M9 14h4M3 9h2M3 15h2M19 9h2M19 15h2"></path></svg></span><span data-i18n="proj5Title">8-Bit Microcontroller Core Design</span></h3>
             <p class="muted" data-i18n="proj5Body">
               Completed transistor-level design of an accumulator-based 8-bit microcontroller in TSMC 65 nm using a custom 6-bit ISA, including schematic, layout, verification, and post-layout analysis.
             </p>
@@ -713,7 +697,7 @@
               <div class="meta" data-i18n="proj4aMeta">Sep 2024 - May 2025 · Undergraduate Thesis</div>
               <span class="project-badge" data-i18n="badgeResearch">Research</span>
             </div>
-            <h3 data-i18n="proj4aTitle">High-Precision SAR ADC Design and Digital Calibration</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 15V9M8 17V7M12 14V10M16 19V5M20 13v-2"></path></svg></span><span data-i18n="proj4aTitle">High-Precision SAR ADC Design and Digital Calibration</span></h3>
             <p class="muted" data-i18n="proj4aBody">
               Joined Associate Professor Xing Xinpeng's research group in senior year to design and verify a capacitor-mismatch digital calibration scheme for a 0.18 um 16-bit SAR ADC.
             </p>
@@ -739,7 +723,7 @@
               <div class="meta" data-i18n="proj4bMeta">2024 · CICC South China Division Second Prize</div>
               <span class="project-badge" data-i18n="badgeAward">Award</span>
             </div>
-            <h3 data-i18n="proj4bTitle">8-Bit 10 GSPS Time-Interleaved SAR ADC</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h3l2-5 4 10 2-5h3"></path><path d="M3 6h18M3 18h18"></path></svg></span><span data-i18n="proj4bTitle">8-Bit 10 GSPS Time-Interleaved SAR ADC</span></h3>
             <p class="muted" data-i18n="proj4bBody">
               Participated in the National College IC Innovation and Entrepreneurship Competition and designed an 8-bit 10 GSPS time-interleaved SAR ADC in TSMC 40 nm.
             </p>
@@ -764,7 +748,7 @@
               <div class="meta" data-i18n="proj6Meta">2024 · University Innovation Project</div>
               <span class="project-badge" data-i18n="badgeSystem">System Build</span>
             </div>
-            <h3 data-i18n="proj6Title">FPGA-Based Portable Electronic Test System</h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="2"></rect><path d="M8 19h8M9 9c1.2 0 1.2 4 2.4 4S12.6 9 13.8 9 15 12 16 12"></path></svg></span><span data-i18n="proj6Title">FPGA-Based Portable Electronic Test System</span></h3>
             <p class="muted" data-i18n="proj6Body">
               Built a portable electronic test system integrating a signal generator and oscilloscope on FPGA, and received a university-level excellence award.
             </p>
@@ -858,14 +842,6 @@
         quick2: "GPA: 4.082/4.0, expected graduation: Dec 2026",
         quick3: "Seeking a Summer 2026 internship, available from mid-May to early September",
         quick4: "Tools: Cadence, Synopsys, JasperGold, QuestaSim, Verilog, SystemVerilog, Python, MATLAB",
-        mini1Value: "ASIC Flow",
-        mini1Label: "RTL to synthesis, place-and-route, timing closure, and post-layout analysis",
-        mini2Value: "Verification",
-        mini2Label: "Formal verification, assertions, debugging, and architecture validation",
-        mini3Value: "Architecture",
-        mini3Label: "RISC-V microarchitecture, accelerators, and memory-aware datapaths",
-        mini4Value: "Tooling",
-        mini4Label: "Cadence, Synopsys, JasperGold, MATLAB, Python, Verilog/SystemVerilog",
         aboutTitle: "About",
         aboutDesc: "Graduate electrical engineering student with hands-on experience in digital IC design, formal verification, and accelerator-oriented hardware development.",
         aboutBody: "I am currently pursuing an M.S. in Electrical Engineering at Columbia University after earning my B.Eng. in Microelectronic Science and Engineering from Sun Yat-Sen University. My coursework and projects span VLSI design, digital VLSI circuits, advanced logic design, computer hardware design, and formal verification. I enjoy building hardware systems end-to-end, from architecture and RTL to backend implementation and post-layout analysis.",
@@ -982,14 +958,6 @@
         quick2: "GPA：4.082/4.0，预计毕业时间：2026 年 12 月",
         quick3: "正在寻找 2026 年暑期实习，可工作的时间为 5 月中旬到 9 月初",
         quick4: "工具：Cadence、Synopsys、JasperGold、QuestaSim、Verilog、SystemVerilog、Python、MATLAB",
-        mini1Value: "ASIC 流程",
-        mini1Label: "覆盖 RTL、综合、布局布线、时序收敛和版图后分析",
-        mini2Value: "验证",
-        mini2Label: "包括形式验证、断言编写、调试和架构正确性验证",
-        mini3Value: "架构",
-        mini3Label: "涵盖 RISC-V 微架构、加速器设计和面向存储的数据通路",
-        mini4Value: "工具链",
-        mini4Label: "Cadence、Synopsys、JasperGold、MATLAB、Python、Verilog/SystemVerilog",
         aboutTitle: "关于我",
         aboutDesc: "电子工程硕士研究生，具备数字集成电路设计、形式化验证和硬件加速器开发的实践经验。",
         aboutBody: "我目前在哥伦比亚大学攻读电子工程硕士，此前于中山大学完成微电子科学与工程本科。我的课程与项目覆盖 VLSI 设计实验、数字 VLSI 电路设计、高级逻辑设计、计算机硬件架构与形式化验证。我喜欢从系统层面完整推进硬件项目，从架构设计与 RTL 实现，一直到后端实现和版图后分析。",
