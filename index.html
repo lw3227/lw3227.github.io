@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linxiao Wu | Personal Website</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --card: rgba(15, 23, 42, 0.82);
+      --text: #e5eefc;
+      --muted: #9fb0c9;
+      --line: rgba(148, 163, 184, 0.18);
+      --accent: #7dd3fc;
+      --accent-2: #c4b5fd;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(196, 181, 253, 0.12), transparent 24%),
+        linear-gradient(180deg, #08111f 0%, #0c172a 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .lang-toggle {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: rgba(24, 36, 64, 0.98);
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text);
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: rgba(24, 36, 64, 0.98);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #7dd3fc, #c4b5fd);
+      color: #07111f;
+      border: none;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(125, 211, 252, 0.18);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-card h3,
+    .section h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .group-label {
+      grid-column: 1 / -1;
+      padding: 6px 2px 2px;
+    }
+
+    .group-label h3 {
+      margin: 0 0 4px;
+      font-size: 20px;
+    }
+
+    .group-label p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project h3,
+    .timeline h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .meta {
+      font-size: 14px;
+      color: var(--accent-2);
+      margin-bottom: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(24, 34, 64, 0.88);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(18, 28, 52, 0.9);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .project-link:hover {
+      text-decoration: none;
+      border-color: var(--accent);
+      background: rgba(28, 42, 76, 0.98);
+    }
+
+    .footer {
+      padding: 32px 0 56px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    [data-lang="zh"] .eyebrow {
+      text-transform: none;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+      }
+
+      .nav-group {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Linxiao Wu</div>
+      <div class="nav-group">
+        <div class="nav-links">
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#projects" data-i18n="navProjects">Projects</a>
+          <a href="#experience" data-i18n="navExperience">Experience</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+        <button class="lang-toggle" id="lang-toggle" type="button">中文</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow" data-i18n="eyebrow">M.S. in Electrical Engineering · Columbia University</div>
+        <h1 data-i18n="heroTitle">Hi, I'm Linxiao Wu.</h1>
+        <p class="subtitle" data-i18n="heroSubtitle">
+          I am a graduate student in Electrical Engineering at Columbia University focused on ASIC design,
+          digital VLSI, computer architecture, and hardware acceleration for machine learning.
+          My work spans RTL design, verification, synthesis, place-and-route, and post-layout analysis.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects" data-i18n="ctaProjects">View Projects</a>
+          <a class="btn" href="mailto:lw3227@columbia.edu" data-i18n="ctaEmail">Email Me</a>
+          <a class="btn" href="Linxiao_Wu_Resume.pdf" target="_blank" data-i18n="ctaResume">Download Resume</a>
+          <a class="btn" href="https://github.com/lw3227" target="_blank">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/linxiao-wu" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="card hero-card">
+        <h3 data-i18n="quickInfoTitle">Quick Info</h3>
+        <ul>
+          <li data-i18n="quick1">M.S. student in Electrical Engineering at Columbia University</li>
+          <li data-i18n="quick2">GPA: 4.082/4.0, expected graduation: Dec 2026</li>
+          <li data-i18n="quick3">Interested in ASIC design, RTL, verification, and ML accelerators</li>
+          <li data-i18n="quick4">Tools: Cadence, Synopsys, JasperGold, Verilog, SystemVerilog, Python, MATLAB</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <h2 data-i18n="aboutTitle">About</h2>
+        <p class="section-desc" data-i18n="aboutDesc">
+          A graduate electrical engineering student with hands-on experience in digital IC design,
+          formal verification, and hardware accelerator development.
+        </p>
+        <div class="card">
+          <p class="muted" data-i18n="aboutBody">
+            I am currently pursuing an M.S. in Electrical Engineering at Columbia University after completing my
+            B.Eng. in Microelectronic Science and Engineering at Sun Yat-sen University. My interests include
+            ASIC implementation, digital architecture, formal verification, and efficient ML hardware. I enjoy building
+            systems end-to-end, from architecture exploration and RTL design to physical implementation and performance analysis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 data-i18n="projectsTitle">Selected Projects</h2>
+        <p class="section-desc" data-i18n="projectsDesc">Selected work across ASIC design, computer architecture, and formal verification.</p>
+        <div class="grid">
+          <article class="card project">
+            <div class="meta" data-i18n="proj1Meta">Feb 2026 - Present · Apple-Sponsored Tape-Out Project</div>
+            <h3 data-i18n="proj1Title">Systolic Array-Based CNN Accelerator for Gesture Recognition</h3>
+            <p class="muted" data-i18n="proj1Body">
+              Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm,
+              including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation,
+              synthesis, place-and-route, timing closure, and post-layout verification.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj1Item1">Architected a compute-and-memory pipeline around a systolic array and local SRAM buffering for efficient CNN inference.</li>
+              <li data-i18n="proj1Item2">Completed the end-to-end digital flow from RTL to backend implementation and signoff-oriented analysis.</li>
+              <li data-i18n="proj1Item3">Co-optimized model structure and hardware cost for a gesture-recognition tape-out project.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">ASIC</span>
+              <span class="tag" data-i18n="tagCnn">CNN Accelerator</span>
+              <span class="tag" data-i18n="tagSystolic">Systolic Array</span>
+              <span class="tag" data-i18n="tagCadence">Cadence Flow</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/lw3227/Model.Development_CNN.Accelerator" target="_blank" rel="noreferrer" data-i18n="repoLink">GitHub Repo</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj2Meta">Mar 2026 - Present · Computer Architecture</div>
+            <h3 data-i18n="proj2Title">Out-of-Order RISC-V Processor</h3>
+            <p class="muted" data-i18n="proj2Body">
+              Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table,
+              reservation stations, physical register file, precise commit, and speculative recovery support.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj2Item1">Implemented key OoO structures including rename, issue, commit, and recovery logic.</li>
+              <li data-i18n="proj2Item2">Focused on precise architectural state, dependency tracking, and speculation-safe execution.</li>
+              <li data-i18n="proj2Item3">Used the project to deepen understanding of performance-oriented CPU microarchitecture.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">RISC-V</span>
+              <span class="tag" data-i18n="tagOoo">OoO Core</span>
+              <span class="tag" data-i18n="tagMicro">Microarchitecture</span>
+              <span class="tag">RTL</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj3Meta">Oct 2025 - Dec 2025 · Digital Design</div>
+            <h3 data-i18n="proj3Title">64-Tap 16-Bit FIR Digital Filter Core</h3>
+            <p class="muted" data-i18n="proj3Body">
+              Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller,
+              and a dual-clock FIFO for clock-domain crossing. Completed RTL, synthesis, STA, and post-synthesis verification.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj3Item1">Built a complete digital signal-processing pipeline around a parameterized FIR core.</li>
+              <li data-i18n="proj3Item2">Integrated dual-clock FIFO logic to handle CDC between low-speed input and high-speed compute domains.</li>
+              <li data-i18n="proj3Item3">Validated the design through synthesis and timing analysis using industry-standard EDA tools.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">FIR</span>
+              <span class="tag" data-i18n="tagCdc">CDC FIFO</span>
+              <span class="tag">Design Compiler</span>
+              <span class="tag">PrimeTime</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/lw3227/64-tap-16-bit-FIR-Digital-Filter-Core" target="_blank" rel="noreferrer" data-i18n="repoLink">GitHub Repo</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj4Meta">Oct 2025 - Dec 2025 · Formal Verification</div>
+            <h3 data-i18n="proj4Title">Formal Verification of an N-Body Hardware Accelerator</h3>
+            <p class="muted" data-i18n="proj4Body">
+              Wrote SVA assertions, assumptions, and cover properties in JasperGold to verify FSM transitions,
+              loop-control behavior, and pointer bounds, uncovering corner-case bugs not exposed by simulation.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj4Item1">Developed property sets for safety, liveness, and legal state progression.</li>
+              <li data-i18n="proj4Item2">Used formal methods to expose corner cases that would be difficult to hit with directed simulation alone.</li>
+              <li data-i18n="proj4Item3">Strengthened understanding of hardware correctness beyond waveform-based debugging.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag" data-i18n="tagFormal">Formal Verification</span>
+              <span class="tag">JasperGold</span>
+              <span class="tag">SVA</span>
+              <span class="tag">Debug</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/lw3227/Formal-Verification-of-N-Body-Accelerator" target="_blank" rel="noreferrer" data-i18n="repoLink">GitHub Repo</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj5Meta">Oct 2025 - Dec 2025 · Digital IC Design</div>
+            <h3 data-i18n="proj5Title">8-Bit Microcontroller Core Design</h3>
+            <p class="muted" data-i18n="proj5Body">
+              Completed transistor-level design of an accumulator-based 8-bit microcontroller in TSMC 65 nm using a custom 6-bit ISA, including schematic, layout, verification, and post-layout analysis.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj5Item1">Implemented key modules including PLA control logic, accumulator, adder, shifter, memory latch, bus driver, and 8-byte SRAM.</li>
+              <li data-i18n="proj5Item2">Achieved DRC/LVS-clean layout and verified ADD, SHIFT, and full-processor behavior in both pre-layout and post-layout simulation.</li>
+              <li data-i18n="proj5Item3">Completed post-layout analysis with a 354 ps critical path and a core area of about 7267.49 um2.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag" data-i18n="tagMcu">8-Bit MCU</span>
+              <span class="tag" data-i18n="tagTransistor">Transistor-Level</span>
+              <span class="tag">TSMC 65nm</span>
+              <span class="tag">DRC/LVS</span>
+            </div>
+          </article>
+
+          <div class="group-label">
+            <h3 data-i18n="ugGroupTitle">Undergraduate Projects at SYSU</h3>
+            <p data-i18n="ugGroupDesc">Projects completed during my undergraduate years at Sun Yat-sen University, mainly spanning data converters and FPGA-based systems.</p>
+          </div>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj4aMeta">Sep 2024 - May 2025 · Undergraduate Thesis</div>
+            <h3 data-i18n="proj4aTitle">High-Precision SAR ADC Design and Digital Calibration</h3>
+            <p class="muted" data-i18n="proj4aBody">
+              Joined Associate Professor Xing Xinpeng's research group in senior year to design and verify a capacitor-mismatch digital calibration scheme for a 0.18 um 16-bit SAR ADC.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj4aItem1">Built a MATLAB behavioral model including capacitor mismatch, comparator noise, and other non-idealities to compare foreground calibration and dither-injection LMS calibration.</li>
+              <li data-i18n="proj4aItem2">Implemented and tested the calibration module on FPGA to evaluate both calibration effectiveness and hardware overhead.</li>
+              <li data-i18n="proj4aItem3">Improved ENOB from 9.97 bits to 15.67 bits under 3 percent CDAC mismatch.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">SAR ADC</span>
+              <span class="tag" data-i18n="tagCalibration">Digital Calibration</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">FPGA</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/lw3227/Digital_Calibration_for_SAR-ADC" target="_blank" rel="noreferrer" data-i18n="repoLink">GitHub Repo</a>
+              <a class="project-link" href="project/sar-adc-calibration.pdf" target="_blank" rel="noreferrer" data-i18n="pdfLink">Project PDF</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj4bMeta">2024 · CICC South China Division Second Prize</div>
+            <h3 data-i18n="proj4bTitle">8-Bit 10 GSPS Time-Interleaved SAR ADC</h3>
+            <p class="muted" data-i18n="proj4bBody">
+              Participated in the National College IC Innovation and Entrepreneurship Competition and designed an 8-bit 10 GSPS time-interleaved SAR ADC in TSMC 40 nm.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj4bItem1">Completed literature review and architecture analysis, then selected a 16-channel TI-SAR solution with 625 MHz sampling rate per channel.</li>
+              <li data-i18n="proj4bItem2">Designed and optimized the single-channel SAR ADC in Cadence Virtuoso, including low-power DAC switching, high-linearity sampling switch, low-noise dynamic comparator, and adaptive asynchronous SAR logic.</li>
+              <li data-i18n="proj4bItem3">Integrated the 16-channel time-interleaved architecture and completed pre-layout verification across input frequencies, process corners, and temperatures.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">TI-SAR ADC</span>
+              <span class="tag">TSMC 40nm</span>
+              <span class="tag">Virtuoso</span>
+              <span class="tag">10 GSPS</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="project/ti-sar-adc.pdf" target="_blank" rel="noreferrer" data-i18n="pdfLink">Project PDF</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="meta" data-i18n="proj6Meta">2024 · University Innovation Project</div>
+            <h3 data-i18n="proj6Title">FPGA-Based Portable Electronic Test System</h3>
+            <p class="muted" data-i18n="proj6Body">
+              Built a portable electronic test system integrating a signal generator and oscilloscope on FPGA, and received a university-level excellence award.
+            </p>
+            <ul class="muted">
+              <li data-i18n="proj6Item1">Developed the signal-generator module using DDS to generate adjustable waveform signals.</li>
+              <li data-i18n="proj6Item2">Integrated oscilloscope functionality with FFT-based spectrum analysis for signal observation and characterization.</li>
+              <li data-i18n="proj6Item3">Took primary responsibility for the signal-generator module and final system integration.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">FPGA</span>
+              <span class="tag">DDS</span>
+              <span class="tag">FFT</span>
+              <span class="tag" data-i18n="tagSignal">Signal Generator</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/lw3227/FPGA-based-Signal-Generator" target="_blank" rel="noreferrer" data-i18n="repoLink">GitHub Repo</a>
+              <a class="project-link" href="project/fpga-signal-generator.pdf" target="_blank" rel="noreferrer" data-i18n="pdfLink">Project PDF</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 data-i18n="experienceTitle">Experience</h2>
+        <p class="section-desc" data-i18n="experienceDesc">Selected experience and academic background.</p>
+        <div class="grid">
+          <article class="card timeline">
+            <div class="meta" data-i18n="exp1Meta">Guangzhou CanSemi Technology Inc. · Jul 2024 - Sep 2024</div>
+            <h3 data-i18n="exp1Title">TCAD / Device Engineering Intern</h3>
+            <p class="muted" data-i18n="exp1Body">
+              Calibrated a 32 V PMOS TCAD model to foundry recipe data, supported wafer electrical characterization and WAT analysis,
+              and simulated two IGBT structures with contributions to a patent application for a novel device design.
+            </p>
+          </article>
+          <article class="card timeline">
+            <div class="meta" data-i18n="exp2Meta">Education</div>
+            <h3 data-i18n="exp2Title">Columbia University / Sun Yat-sen University</h3>
+            <p class="muted" data-i18n="exp2Body">
+              M.S. in Electrical Engineering at Columbia University and B.Eng. in Microelectronic Science and Engineering at Sun Yat-sen University.
+              Coursework includes VLSI design, advanced logic design, hardware design, and formal verification.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 data-i18n="contactTitle">Contact</h2>
+        <p class="section-desc" data-i18n="contactDesc">Make it easy for recruiters or professors to reach you.</p>
+        <div class="card">
+          <p><span data-i18n="contactEmail">Email</span>: <a href="mailto:lw3227@columbia.edu">lw3227@columbia.edu</a></p>
+          <p><span data-i18n="contactResume">Resume</span>: <a href="Linxiao_Wu_Resume.pdf" target="_blank">Linxiao_Wu_Resume.pdf</a></p>
+          <p>GitHub: <a href="https://github.com/lw3227" target="_blank">github.com/lw3227</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/linxiao-wu" target="_blank">linkedin.com/in/linxiao-wu</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p data-i18n="footer">© 2026 Linxiao Wu. Built with a simple single-file template.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Linxiao Wu | Personal Website",
+        toggle: "中文",
+        navAbout: "About",
+        navProjects: "Projects",
+        navExperience: "Experience",
+        navContact: "Contact",
+        eyebrow: "M.S. in Electrical Engineering · Columbia University",
+        heroTitle: "Hi, I'm Linxiao Wu.",
+        heroSubtitle: "I am an M.S. student in Electrical Engineering at Columbia University with interests in ASIC design flow, digital circuit design, formal verification, RISC-V microarchitecture, and hardware acceleration for machine learning.",
+        ctaProjects: "View Projects",
+        ctaEmail: "Email Me",
+        ctaResume: "Download Resume",
+        quickInfoTitle: "Quick Info",
+        quick1: "M.S. in Electrical Engineering, Columbia University",
+        quick2: "GPA: 4.082/4.0, expected graduation: Dec 2026",
+        quick3: "Focus: ASIC design flow, formal verification, RISC-V, and CNN accelerators",
+        quick4: "Tools: Cadence, Synopsys, JasperGold, QuestaSim, Verilog, SystemVerilog, Python, MATLAB",
+        aboutTitle: "About",
+        aboutDesc: "Graduate electrical engineering student with hands-on experience in digital IC design, formal verification, and accelerator-oriented hardware development.",
+        aboutBody: "I am currently pursuing an M.S. in Electrical Engineering at Columbia University after earning my B.Eng. in Microelectronic Science and Engineering from Sun Yat-Sen University. My coursework and projects span VLSI design, digital VLSI circuits, advanced logic design, computer hardware design, and formal verification. I enjoy building hardware systems end-to-end, from architecture and RTL to backend implementation and post-layout analysis.",
+        projectsTitle: "Selected Projects",
+        projectsDesc: "Recent graduate projects appear first, followed by undergraduate projects completed at Sun Yat-sen University.",
+        ugGroupTitle: "Undergraduate Projects at SYSU",
+        ugGroupDesc: "Projects completed during my undergraduate years at Sun Yat-sen University, mainly spanning data converters and FPGA-based systems.",
+        proj1Meta: "Feb 2026 - Present · Apple-Sponsored Tape-Out Project",
+        proj1Title: "Systolic Array-Based CNN Accelerator for Gesture Recognition",
+        proj1Body: "Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm, including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation, synthesis, place-and-route, timing closure, and post-layout verification.",
+        proj1Item1: "Architected a compute-and-memory pipeline around a systolic array and local SRAM buffering for efficient CNN inference.",
+        proj1Item2: "Completed the end-to-end digital flow from RTL to backend implementation and signoff-oriented analysis.",
+        proj1Item3: "Co-optimized model structure and hardware cost for a gesture-recognition tape-out project.",
+        proj2Meta: "Mar 2026 - Present · Computer Architecture",
+        proj2Title: "Out-of-Order RISC-V Processor",
+        proj2Body: "Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table, reservation stations, physical register file, precise commit, and speculative recovery support.",
+        proj2Item1: "Implemented key OoO structures including rename, issue, commit, and recovery logic.",
+        proj2Item2: "Focused on precise architectural state, dependency tracking, and speculation-safe execution.",
+        proj2Item3: "Used the project to deepen understanding of performance-oriented CPU microarchitecture.",
+        proj3Meta: "Oct 2025 - Dec 2025 · Digital Design",
+        proj3Title: "64-Tap 16-Bit FIR Digital Filter Core",
+        proj3Body: "Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller, and a dual-clock FIFO for clock-domain crossing. Completed RTL, synthesis, STA, and post-synthesis verification.",
+        proj3Item1: "Built a complete digital signal-processing pipeline around a parameterized FIR core.",
+        proj3Item2: "Integrated dual-clock FIFO logic to handle CDC between low-speed input and high-speed compute domains.",
+        proj3Item3: "Validated the design through synthesis and timing analysis using industry-standard EDA tools.",
+        proj4aMeta: "Sep 2024 - May 2025 · Undergraduate Thesis",
+        proj4aTitle: "High-Precision SAR ADC Design and Digital Calibration",
+        proj4aBody: "Joined Associate Professor Xing Xinpeng's research group in senior year to design and verify a capacitor-mismatch digital calibration scheme for a 0.18 um 16-bit SAR ADC.",
+        proj4aItem1: "Built a MATLAB behavioral model including capacitor mismatch, comparator noise, and other non-idealities to compare foreground calibration and dither-injection LMS calibration.",
+        proj4aItem2: "Implemented and tested the calibration module on FPGA to evaluate both calibration effectiveness and hardware overhead.",
+        proj4aItem3: "Improved ENOB from 9.97 bits to 15.67 bits under 3 percent CDAC mismatch.",
+        proj4Meta: "Oct 2025 - Dec 2025 · Formal Verification",
+        proj4Title: "Formal Verification of an N-Body Hardware Accelerator",
+        proj4Body: "Used SystemVerilog Assertions in Cadence JasperGold to formally verify the FSM, shift-register pipeline, and address-pointer logic of an N-Body hardware accelerator, exposing design flaws missed by simulation.",
+        proj4Item1: "Wrote assertion, assumption, and cover properties for model checking rather than relying on finite testbench-based simulation.",
+        proj4Item2: "Found and debugged corner-case bugs including illegal FSM state transitions and a pointer off-by-one overflow issue.",
+        proj4Item3: "Improved formal runtime and memory efficiency through IP black-boxing and parameterized pipeline-latency modeling.",
+        proj4bMeta: "2024 · CICC South China Division Second Prize",
+        proj4bTitle: "8-Bit 10 GSPS Time-Interleaved SAR ADC",
+        proj4bBody: "Participated in the National College IC Innovation and Entrepreneurship Competition and designed an 8-bit 10 GSPS time-interleaved SAR ADC in TSMC 40 nm.",
+        proj4bItem1: "Completed literature review and architecture analysis, then selected a 16-channel TI-SAR solution with 625 MHz sampling rate per channel.",
+        proj4bItem2: "Designed and optimized the single-channel SAR ADC in Cadence Virtuoso, including low-power DAC switching, high-linearity sampling switch, low-noise dynamic comparator, and adaptive asynchronous SAR logic.",
+        proj4bItem3: "Integrated the 16-channel time-interleaved architecture and completed pre-layout verification across input frequencies, process corners, and temperatures.",
+        proj5Meta: "Oct 2025 - Dec 2025 · Digital IC Design",
+        proj5Title: "8-Bit Microcontroller Core Design",
+        proj5Body: "Completed transistor-level design of an accumulator-based 8-bit microcontroller in TSMC 65 nm using a custom 6-bit ISA, including schematic, layout, verification, and post-layout analysis.",
+        proj5Item1: "Implemented key modules including PLA control logic, accumulator, adder, shifter, memory latch, bus driver, and 8-byte SRAM.",
+        proj5Item2: "Achieved DRC/LVS-clean layout and verified ADD, SHIFT, and full-processor behavior in both pre-layout and post-layout simulation.",
+        proj5Item3: "Completed post-layout analysis with a 354 ps critical path and a core area of about 7267.49 um2.",
+        proj6Meta: "2024 · University Innovation Project",
+        proj6Title: "FPGA-Based Portable Electronic Test System",
+        proj6Body: "Built a portable electronic test system integrating a signal generator and oscilloscope on FPGA, and received a university-level excellence award.",
+        proj6Item1: "Developed the signal-generator module using DDS to generate adjustable waveform signals.",
+        proj6Item2: "Integrated oscilloscope functionality with FFT-based spectrum analysis for signal observation and characterization.",
+        proj6Item3: "Took primary responsibility for the signal-generator module and final system integration.",
+        experienceTitle: "Experience",
+        experienceDesc: "Industry experience and academic background aligned with my resume.",
+        exp1Meta: "Guangzhou CanSemi Technology Inc. · Jul 2024 - Sep 2024",
+        exp1Title: "TCAD / Device Engineering Intern",
+        exp1Body: "Calibrated a 32 V PMOS TCAD model to foundry recipe data, delivered a reusable device model, supported wafer electrical characterization and WAT analysis, and simulated two IGBT structures for a patent-related device study.",
+        exp2Meta: "Education",
+        exp2Title: "Columbia University / Sun Yat-sen University",
+        exp2Body: "M.S. in Electrical Engineering at Columbia University and B.Eng. in Microelectronic Science and Engineering at Sun Yat-Sen University. Coursework includes VLSI Design Lab, Digital VLSI Circuits, Advanced Logic Design, Computer Hardware Design, Formal Verification, embedded systems, FPGA design, and digital signal processing.",
+        contactTitle: "Contact",
+        contactDesc: "Feel free to reach out for research, internship, or full-time opportunities.",
+        contactEmail: "Email",
+        contactResume: "Resume",
+        footer: "© 2026 Linxiao Wu. Built with a simple single-file template.",
+        tagCnn: "CNN Accelerator",
+        tagSystolic: "Systolic Array",
+        tagCadence: "Cadence Flow",
+        tagOoo: "OoO Core",
+        tagMicro: "Microarchitecture",
+        tagCdc: "CDC FIFO",
+        tagFormal: "Formal Verification",
+        tagMcu: "8-Bit MCU",
+        tagTransistor: "Transistor-Level",
+        tagCalibration: "Digital Calibration",
+        tagSignal: "Signal Generator",
+        repoLink: "GitHub Repo",
+        pdfLink: "Project PDF"
+      },
+      zh: {
+        pageTitle: "吴林晓 | 个人主页",
+        toggle: "English",
+        navAbout: "关于我",
+        navProjects: "项目经历",
+        navExperience: "经历",
+        navContact: "联系方式",
+        eyebrow: "哥伦比亚大学电子工程硕士",
+        heroTitle: "你好，我是吴林晓。",
+        heroSubtitle: "我目前在哥伦比亚大学攻读电子工程硕士，关注 ASIC 设计流程、数字电路设计、形式化验证、RISC-V 微架构，以及面向机器学习的硬件加速。",
+        ctaProjects: "查看项目",
+        ctaEmail: "给我发邮件",
+        ctaResume: "下载简历",
+        quickInfoTitle: "快速信息",
+        quick1: "哥伦比亚大学电子工程硕士",
+        quick2: "GPA：4.082/4.0，预计毕业时间：2026 年 12 月",
+        quick3: "方向：ASIC 设计流程、形式化验证、RISC-V 与 CNN 加速器",
+        quick4: "工具：Cadence、Synopsys、JasperGold、QuestaSim、Verilog、SystemVerilog、Python、MATLAB",
+        aboutTitle: "关于我",
+        aboutDesc: "电子工程硕士研究生，具备数字集成电路设计、形式化验证和硬件加速器开发的实践经验。",
+        aboutBody: "我目前在哥伦比亚大学攻读电子工程硕士，此前于中山大学完成微电子科学与工程本科。我的课程与项目覆盖 VLSI 设计实验、数字 VLSI 电路设计、高级逻辑设计、计算机硬件架构与形式化验证。我喜欢从系统层面完整推进硬件项目，从架构设计与 RTL 实现，一直到后端实现和版图后分析。",
+        projectsTitle: "项目经历",
+        projectsDesc: "前半部分是研究生阶段项目，后半部分是我在中山大学本科时期完成的项目，主要以数据转换器和 FPGA 系统为主。",
+        ugGroupTitle: "中山大学本科阶段项目",
+        ugGroupDesc: "以下项目主要完成于本科阶段，集中在 SAR ADC、时间交织架构和 FPGA 系统设计。",
+        proj1Meta: "2026 年 2 月至今 · Apple 支持的流片项目",
+        proj1Title: "基于脉动阵列的手势识别 CNN 加速器",
+        proj1Body: "面向 65 nm 工艺下 64x64 灰度手势识别任务，设计纯硬件 INT8 CNN 加速器 ASIC，包括 64 个 PE 的脉动阵列、片上 SRAM 架构、完整 RTL 实现、综合、布局布线、时序收敛和版图后验证。",
+        proj1Item1: "围绕脉动阵列和本地 SRAM 缓冲设计计算与存储协同的数据通路，以提升 CNN 推理效率。",
+        proj1Item2: "完成从 RTL 到后端实现及签核导向分析的端到端数字设计流程。",
+        proj1Item3: "结合流片目标，在模型结构与硬件成本之间进行协同优化。",
+        proj2Meta: "2026 年 3 月至今 · 计算机体系结构",
+        proj2Title: "乱序执行 RISC-V 处理器",
+        proj2Body: "设计 P6 风格的乱序执行 RISC-V 微架构，包含 ROB、寄存器重命名表、保留站、物理寄存器文件、精确提交以及投机恢复机制。",
+        proj2Item1: "实现重命名、发射、提交和错误恢复等关键乱序执行结构。",
+        proj2Item2: "重点处理精确体系结构状态、数据相关跟踪和安全投机执行。",
+        proj2Item3: "通过该项目深入理解以性能为导向的 CPU 微架构设计。",
+        proj3Meta: "2025 年 10 月 - 2025 年 12 月 · 数字设计",
+        proj3Title: "64 阶 16 位 FIR 数字滤波器核心",
+        proj3Body: "设计定点 FIR 核心，包含乘累加数据通路、CMEM/IMEM、基于 FSM 的控制器，以及用于跨时钟域的双时钟 FIFO，并完成 RTL、综合、静态时序分析和综合后验证。",
+        proj3Item1: "围绕参数化 FIR 核心构建完整的数字信号处理流水线。",
+        proj3Item2: "集成双时钟 FIFO，处理低速输入域与高速计算域之间的 CDC 问题。",
+        proj3Item3: "使用工业级 EDA 工具完成综合与时序分析验证设计正确性。",
+        proj4aMeta: "2024 年 9 月 - 2025 年 5 月 · 本科毕业设计",
+        proj4aTitle: "高精度 SAR ADC 设计与数字校准",
+        proj4aBody: "大四加入幸新鹏副教授课题组，面向 0.18 um 16 位 SAR ADC 设计并验证电容失配数字校准方案。",
+        proj4aItem1: "使用 MATLAB 搭建含电容失配、比较器噪声等非理想因素的行为级模型，对低位电容校准高位的前台校准算法及基于扰动注入的 LMS 校准算法进行建模与性能比较。",
+        proj4aItem2: "进一步在 FPGA 上完成校准模块部署与测试，评估校准效果与硬件开销。",
+        proj4aItem3: "最终在 3% CDAC 电容失配条件下，将 SAR ADC 的 ENOB 由 9.97 bits 提升至 15.67 bits。",
+        proj4Meta: "2025 年 10 月 - 2025 年 12 月 · 形式验证",
+        proj4Title: "N-Body 硬件加速器的形式验证",
+        proj4Body: "使用 SystemVerilog Assertions (SVA) 对 N-Body 硬件加速器的 FSM、shift register pipeline 和地址指针逻辑进行形式化验证。",
+        proj4Item1: "在 Cadence JasperGold 中编写 assertion、assumption 和 cover properties，对系统状态空间进行模型检查，替代传统 testbench 的有限仿真验证。",
+        proj4Item2: "发现并定位多个 simulation 未覆盖的设计缺陷，包括 FSM 非法状态跳转以及 pointer off-by-one overflow bug。",
+        proj4Item3: "通过 IP black-boxing 与 pipeline latency 参数化优化形式化验证流程，降低验证 runtime 与内存消耗。",
+        proj4bMeta: "2024 年 · 全国大学生集成电路创新创业大赛华南赛区二等奖",
+        proj4bTitle: "基于时间交织技术的 8 位 10 GSPS SAR ADC",
+        proj4bBody: "参与全国大学生集成电路创新创业大赛，设计并实现基于 TSMC 40nm 工艺的 8 位 10 GSPS Time-Interleaved SAR ADC。",
+        proj4bItem1: "通过文献调研完成 SAR ADC 及时分交织架构分析，确定采用 16 通道、单通道 625 MHz 的 TI-SAR 方案。",
+        proj4bItem2: "使用 Cadence Virtuoso 完成单通道 SAR ADC 电路设计与优化，涵盖低功耗 DAC switching、高线性度采样开关、低噪声高速动态比较器及自适应采样异步 SAR 逻辑。",
+        proj4bItem3: "完成 16 通道时间交织架构集成，并在不同输入频率、工艺角和温度条件下完成前仿验证。",
+        proj5Meta: "2025 年 10 月 - 2025 年 12 月 · 数字集成电路设计",
+        proj5Title: "8 位微控制器核心设计",
+        proj5Body: "在 TSMC 65 nm 工艺下完成基于累加器架构的 8 位微控制器晶体管级设计，使用自定义 6-bit ISA，覆盖原理图、版图、验证与后版图分析。",
+        proj5Item1: "实现 PLA 控制逻辑、MUX、Shift Bypasser、Accumulator、Mem Latch、Bus Driver、8 位加法器、移位器和 8-byte SRAM 等关键模块。",
+        proj5Item2: "完成版图实现并达到 DRC/LVS clean，通过前仿与后仿验证 ADD、SHIFT 及整体处理器功能。",
+        proj5Item3: "完成后版图性能分析，关键路径为 354 ps，核心面积约 7267.49 um2。",
+        proj6Meta: "2024 年 · 大学生创新创业项目",
+        proj6Title: "基于 FPGA 的便携式电子检测系统",
+        proj6Body: "参与大学生创新创业项目，构建集成信号发生器与示波器的便携式电子检测系统，并获得校级优秀奖。",
+        proj6Item1: "利用 DDS 技术实现信号发生器模块，生成频率和波形可调的输出信号。",
+        proj6Item2: "示波器模块使用 FFT 技术进行频谱分析，提升信号观测与检测能力。",
+        proj6Item3: "个人主要负责信号发生器模块设计以及项目最终整合。",
+        experienceTitle: "经历",
+        experienceDesc: "与正式简历对齐的实习经历与教育背景。",
+        exp1Meta: "广州芯聚能半导体有限公司 · 2024 年 7 月 - 2024 年 9 月",
+        exp1Title: "TCAD / 器件工程实习生",
+        exp1Body: "基于代工厂工艺数据建立 32V PMOS 器件的 TCAD 模型，并交付可复用的器件模型；参与晶圆电特性量测与 WAT 分析，并模拟两种 IGBT 结构，为新型器件专利申请提供支持。",
+        exp2Meta: "教育背景",
+        exp2Title: "哥伦比亚大学 / 中山大学",
+        exp2Body: "哥伦比亚大学电子工程硕士，中山大学微电子科学与工程学士。课程涵盖 VLSI 设计实验、数字 VLSI 电路设计、高级逻辑设计、形式化验证、计算机硬件架构，以及嵌入式系统、FPGA 设计和数字信号处理。",
+        contactTitle: "联系方式",
+        contactDesc: "欢迎联系我讨论科研、实习或全职机会。",
+        contactEmail: "邮箱",
+        contactResume: "简历",
+        footer: "© 2026 吴林晓。页面采用单文件静态模板构建。",
+        tagCnn: "CNN 加速器",
+        tagSystolic: "脉动阵列",
+        tagCadence: "Cadence 流程",
+        tagOoo: "乱序核心",
+        tagMicro: "微架构",
+        tagCdc: "CDC FIFO",
+        tagFormal: "形式验证",
+        tagMcu: "8 位 MCU",
+        tagTransistor: "晶体管级",
+        tagCalibration: "数字校准",
+        tagSignal: "信号发生器",
+        repoLink: "GitHub 仓库",
+        pdfLink: "项目 PDF"
+      }
+    };
+
+    const langToggle = document.getElementById("lang-toggle");
+    const translatableNodes = document.querySelectorAll("[data-i18n]");
+    const savedLang = localStorage.getItem("site-language");
+    let currentLang = savedLang || "en";
+
+    function applyLanguage(lang) {
+      const copy = translations[lang] || translations.en;
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      document.body.setAttribute("data-lang", lang);
+      document.title = copy.pageTitle;
+
+      translatableNodes.forEach((node) => {
+        const key = node.dataset.i18n;
+        if (copy[key]) {
+          node.textContent = copy[key];
+        }
+      });
+
+      langToggle.textContent = copy.toggle;
+      localStorage.setItem("site-language", lang);
+      currentLang = lang;
+    }
+
+    langToggle.addEventListener("click", () => {
+      applyLanguage(currentLang === "en" ? "zh" : "en");
+    });
+
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
