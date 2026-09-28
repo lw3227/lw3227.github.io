@@ -1,0 +1,40 @@
+吴林晓
++1 917-329-6388  |  lw3227@columbia.edu  |  www.linxiaowu.com  |  github.com/lw3227
+教育背景
+哥伦比亚大学纽约，美国
+电气工程硕士 | GPA：4.0/4.0预计 2026 年 12 月毕业
+中山大学广州，中国
+微电子科学与工程学士 | GPA：3.7/4.02025 年 6 月毕业
+荣誉：中山大学奖学金；本科优秀毕业论文奖
+实习经历
+隼瞻科技上海张江，中国
+CPU IP 设计实习生2026 年 6 月 - 2026 年 9 月
+•参与符合 RVA23 Profile 的 RISC-V CPU IP 开发，负责 VPU 中 VFPU 的设计与集成。
+•负责 VFCVT 向量浮点转换模块，支持 FP64、FP32、FP16、BF16 与整数格式转换。
+•设计三级流水线、多精度数据通路融合、Lane 级并行处理与可配置 DLEN，并围绕 PPA 复用硬件资源。
+•参与 VFPU 与 VCTRL 控制逻辑、vector uop 分发、mask/lane 管理及 valid/stall/flush 和 forwarding 机制。
+•使用 Synopsys Design Compiler 完成 RTL 综合及时序分析，并针对关键路径优化数据通路。
+粤芯半导体广州，中国
+TCAD / 器件工程实习生2024 年 7 月 - 2024 年 9 月
+•基于代工厂工艺数据建立并校准可复用的 32V PMOS TCAD 模型，参与晶圆电特性与 WAT 数据分析。
+•模拟 IGBT 器件结构，为专利相关器件研究提供支持。
+项目经历
+Apple 赞助手势识别 CNN 加速器 ASIC2026 年 2 月 - 至今
+•设计面向 64×64 灰度手势识别的纯硬件 INT8 CNN，并于 2026 年 7 月在 TSMC 65 nm 工艺完成投片。
+•实现 64 个 PE 的 INT8 脉动阵列，单次推理约 464K 次 MAC 运算，并集成 8 KB 片上 SRAM。
+•完成 RTL、DFT scan chain、Genus 综合、Innovus 布局布线及版图后验证，并使用 Python/MATLAB 进行量化评估。
+基于 P6 微架构的乱序执行 RISC-V 处理器2026 年 3 月 - 2026 年 6 月
+•支持 2-wide Fetch、Dispatch 与 Retire、单发射乱序执行及顺序提交。
+•实现 16-entry ROB、8-entry Reservation Station、Map Table 与 CDB，支持基于 ROB Tag 的寄存器重命名和乱序发射。
+•实现 5-bit GHR 与 32-entry BHT/BTB 的 gshare 分支预测器，支持投机更新和 ROB snapshot 恢复。
+•实现独立 LQ/SQ 与 2-way non-blocking D-cache，支持 Store-to-Load Forwarding、4-entry MSHR 与 4-entry Victim Cache。
+N-Body 硬件加速器形式验证2025 年 10 月 - 2025 年 12 月
+•使用 Cadence JasperGold 编写 SVA assertion、assumption 与 cover property，验证 FSM、移位寄存器及指针边界。
+•发现仿真测试未覆盖的非法 FSM 跳转及持续一个周期的指针越界问题。
+64-tap 16-bit FIR 数字滤波器2025 年 10 月 - 2025 年 12 月
+•设计定点 FIR 核心，实现乘加数据通路、CMEM/IMEM 及控制 FSM。
+•使用异步 FIFO 解决 10 kHz 输入时钟域与高速 FIR 内核之间的跨时钟域通信问题。
+技能
+EDA：Synopsys Design Compiler、PrimeTime；Cadence Genus、Innovus、Xcelium；JasperGold、ModelSim、Verdi
+编程：Verilog、SystemVerilog、Python（NumPy、PyTorch）、C、MATLAB
+方向：ASIC 设计、RISC-V CPU/VPU 架构、CNN 硬件加速器

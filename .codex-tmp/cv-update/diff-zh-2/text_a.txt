@@ -1,0 +1,38 @@
+吴林晓
++86 18925193410 | lw3227@columbia.edu | 个人网站：www.linxiaowu.com | github.com/lw3227 
+教育背景
+哥伦比亚大学纽约, 美国
+电气工程硕士, GPA：4.0/4.0预计毕业时间：2026 年 12 月
+中山大学广州, 中国
+微电子科学与工程学士, GPA：3.7/4.0毕业时间：2025 年 6 月
+荣誉：中山大学奖学金；本科优秀毕业论文奖 
+实习经历
+隼瞻科技上海张江, 中国
+CPU IP设计实习生2026年6月 – 2026年9月
+参与符合 RVA23 Profile 的 RISC-V CPU  IP核开发，参与VPU 中浮点数处理单元(VFPU) 的设计与集成。
+作为 VFCVT（向量浮点转换）模块主要负责人，设计支持 FP64/FP32/FP16/BF16 与整数转换的多精度向量浮点转换数据通路，适配 RVV 指令执行。
+面向项目PPA约束进行微架构优化，设计 3级流水线完成模块的关键路径切分；通过多精度数据路径融合与硬件资源复用降低面积开销，实现 Lane 级并行处理并支持不同 DLEN 配置。
+参与 VFPU 集成及 VCTRL 控制逻辑设计，实现 vector uop 分发、执行控制信号生成以及 mask/lane 管理；完善流水线 valid/stall/flush 机制，支持多级 pipeline 数据 forwarding。
+基于 Synopsys Design Compiler 完成 RTL 综合及时序分析，根据关键路径优化数据通路结构，最终交付可集成版本。
+粤芯半导体广州, 中国
+RD部门 TCAD组 实习2024年7月 – 2024年9月
+基于FAB工艺数据，建立并交付32V PMOS 器件的 TCAD模型；参与新型 IGBT 器件结构开发并共同申请相关专利。
+基于硅片电学测试数据进行器件特性分析，辅助晶圆接收测试（WAT）中的制程质量监控。
+项目经历
+Apple赞助流片项目：面向手势识别的Systolic-Array-Based CNN 加速器（已于7月投片）2026年2月 – 至今
+设计纯硬件 INT8 CNN ASIC 加速器，适用于 64×64 灰度图像的手势识别，采用固定 CNN 网络结构。
+设计并实现 64 PE 的 INT8 systolic-array 加速器，单次推理支持约 464k MAC 运算，并集成8KB片上 SRAM（TSMC 65nm 工艺）。
+完成完整数字 IC 设计流程，包括 RTL 实现、DFT scan chain设计、Cadence Genus综合、Innovus APR及版图后验证。
+使用 Python / MATLAB 完成 CNN 模型构建与量化评估，优化网络结构以平衡精度、面积与硬件开销。
+基于 P6 微架构的超标量乱序执行（Out-of-Order）RISC-V 处理器2026年3月-2026年6月
+设计基于 P6 微架构的 RISC-V OoO 处理器，支持2-wide的 Fetch/Dispatch/Retire 与单发射乱序执行，实现指令级并行执行及顺序提交。
+构建 16-entry ROB、8-entry Reservation Station 与 Map Table，实现基于 ROB Tag 的寄存器重命名、CDB 及乱序发射。
+设计 5-bit GHR + 32-entry BHT/BTB 的 Gshare 分支预测器，支持 2-wide speculative GHR更新及基于 ROB snapshot 的 branch misprediction 状态恢复，提高了分支预测准确性。
+实现 Split LQ/SQ 与 2-way Non-blocking D-cache，支持 Store-to-Load Forwarding，并集成 4-entry MSHR 与 4-entry Victim Cache。
+64-tap 16-bit FIR 数字滤波器设计2025年10月- 2025年 12月
+设计基于定点数运算的 64-tap 16-bit FIR 滤波器核心，实现乘加数据通路、CMEM/IMEM 及控制 FSM。
+使用异步 FIFO解决 10 kHz 输入时钟域与高速 FIR 内核之间的跨时钟域通信（CDC）问题。
+技能
+EDA: Synopsys(Design Compiler, PrimeTime), Cadence(Genus, Innovus, Xcelium), JasperGold, Modelsim, Verdi
+编程语言:  Verilog, SystemVerilog, Python (NumPy, PyTorch), C, MATLAB›
+专业方向： ASIC设计、RISC-V CPU/VPU架构、CNN 硬件加速器

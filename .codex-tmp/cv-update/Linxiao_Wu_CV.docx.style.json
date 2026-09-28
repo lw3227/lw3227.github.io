@@ -1,0 +1,165 @@
+{
+  "input": "/Users/linxiao/Library/Mobile Documents/com~apple~CloudDocs/cv/HTML/deliverables/Linxiao_Wu_CV.docx",
+  "fonts_by_char_count": {
+    "Times New Roman": 3228
+  },
+  "direct_run_formatting_runs": 56,
+  "direct_paragraph_formatting_paragraphs": 40,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "Linxiao Wu",
+      "style": "Normal"
+    },
+    {
+      "para_index": 3,
+      "text": "EDUCATION",
+      "style": "Normal"
+    },
+    {
+      "para_index": 4,
+      "text": "Columbia University\tNew York, NY",
+      "style": "Normal"
+    },
+    {
+      "para_index": 5,
+      "text": "M.S. in Electrical Engineering | GPA: 4.0/4.0\tExpected Dec 2026",
+      "style": "Normal"
+    },
+    {
+      "para_index": 6,
+      "text": "Sun Yat-sen University\tGuangzhou, China",
+      "style": "Normal"
+    },
+    {
+      "para_index": 7,
+      "text": "B.Eng. in Microelectronics Science and Engineering | GPA: 3.7/4.0\tJun 2025",
+      "style": "Normal"
+    },
+    {
+      "para_index": 9,
+      "text": "EXPERIENCE",
+      "style": "Normal"
+    },
+    {
+      "para_index": 10,
+      "text": "WingSemi Technology\tShanghai Zhangjiang, China",
+      "style": "Normal"
+    },
+    {
+      "para_index": 11,
+      "text": "CPU IP Design Intern\tJun 2026 - Sep 2026",
+      "style": "Normal"
+    },
+    {
+      "para_index": 17,
+      "text": "Guangzhou CanSemi Technology Inc.\tGuangzhou, China",
+      "style": "Normal"
+    },
+    {
+      "para_index": 18,
+      "text": "TCAD / Device Engineering Intern\tJul 2024 - Sep 2024",
+      "style": "Normal"
+    },
+    {
+      "para_index": 21,
+      "text": "PROJECTS",
+      "style": "Normal"
+    },
+    {
+      "para_index": 22,
+      "text": "Apple-Sponsored Gesture-Recognition CNN Accelerator ASIC\tFeb 2026 - Present",
+      "style": "Normal"
+    },
+    {
+      "para_index": 26,
+      "text": "P6-Based Out-of-Order RISC-V Processor\tMar 2026 - Jun 2026",
+      "style": "Normal"
+    },
+    {
+      "para_index": 31,
+      "text": "N-Body Accelerator Formal Verification\tOct 2025 - Dec 2025",
+      "style": "Normal"
+    },
+    {
+      "para_index": 34,
+      "text": "64-Tap 16-Bit FIR Digital Filter\tOct 2025 - Dec 2025",
+      "style": "Normal"
+    },
+    {
+      "para_index": 37,
+      "text": "TECHNICAL SKILLS",
+      "style": "Normal"
+    },
+    {
+      "para_index": 39,
+      "text": "Programming: Verilog, SystemVerilog, Python (NumPy, PyTorch), C, MATLAB",
+      "style": "Normal"
+    },
+    {
+      "para_index": 40,
+      "text": "Focus Areas: ASIC design, RISC-V CPU/VPU architecture, CNN hardware accelerators",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "Linxiao Wu",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "text": "+1 917-329-6388  |  lw3227@columbia.edu  |  www.linxiaowu.com  |  github.com/lw3227",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "text": "EDUCATION",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "text": "Columbia University\tNew York, NY",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "M.S. in Electrical Engineering | GPA: 4.0/4.0\tExpected Dec 2026",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "Linxiao Wu",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "+1 917-329-6388  |  lw3227@columbia.edu  |  www.linxiaowu.com  |  github.com/lw3",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "EDUCATION",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "run_text": "Columbia University",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "run_text": "\tNew York, NY",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

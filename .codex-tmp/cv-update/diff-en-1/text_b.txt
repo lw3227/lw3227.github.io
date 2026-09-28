@@ -1,0 +1,40 @@
+Linxiao Wu
++1 917-329-6388  |  lw3227@columbia.edu  |  www.linxiaowu.com  |  github.com/lw3227
+EDUCATION
+Columbia UniversityNew York, NY
+M.S. in Electrical Engineering | GPA: 4.0/4.0Expected Dec 2026
+Sun Yat-sen UniversityGuangzhou, China
+B.Eng. in Microelectronics Science and Engineering | GPA: 3.7/4.0Jun 2025
+Honors: Sun Yat-sen University Scholarship; Outstanding Undergraduate Thesis Award
+EXPERIENCE
+WingSemi TechnologyShanghai Zhangjiang, China
+CPU IP Design InternJun 2026 - Sep 2026
+•Contributed to an RVA23-compliant RISC-V CPU IP, focusing on VFPU design and integration within the VPU.
+•Owned the VFCVT module, implementing conversions among FP64, FP32, FP16, BF16, and integer formats for RVV instructions.
+•Designed a three-stage pipeline with shared multi-precision datapaths, lane-level parallelism, configurable DLEN, and PPA-driven hardware reuse.
+•Supported VFPU/VCTRL integration, vector micro-op control, mask/lane management, valid/stall/flush handling, and pipeline forwarding.
+•Performed RTL synthesis and timing analysis in Synopsys Design Compiler and optimized critical datapaths.
+Guangzhou CanSemi Technology Inc.Guangzhou, China
+TCAD / Device Engineering InternJul 2024 - Sep 2024
+•Built and calibrated a reusable 32 V PMOS TCAD model against foundry process data; analyzed wafer electrical and WAT data.
+•Simulated IGBT device structures and supported patent-related device development.
+PROJECTS
+Apple-Sponsored Gesture-Recognition CNN Accelerator ASICFeb 2026 - Present
+•Designed a fully hardware INT8 CNN for 64 x 64 grayscale gesture recognition; taped out in TSMC 65 nm in July 2026.
+•Built a 64-PE INT8 systolic array with approximately 464K MACs per inference and 8 KB on-chip SRAM.
+•Completed RTL, DFT scan-chain design, Genus synthesis, Innovus place and route, and post-layout verification; evaluated quantization in Python and MATLAB.
+P6-Based Out-of-Order RISC-V ProcessorMar 2026 - Jun 2026
+•Designed two-wide fetch/dispatch/retirement with single-issue out-of-order execution and in-order commit.
+•Implemented a 16-entry ROB, 8-entry reservation station, map table, and CDB for ROB-tag-based register renaming and issue.
+•Developed a 5-bit-GHR, 32-entry BHT/BTB gshare predictor with speculative updates and ROB-snapshot recovery.
+•Implemented split LQ/SQ and a two-way non-blocking D-cache with store-to-load forwarding, four-entry MSHR capacity, and a four-entry victim cache.
+N-Body Accelerator Formal VerificationOct 2025 - Dec 2025
+•Authored SystemVerilog assertions, assumptions, and cover properties in Cadence JasperGold for FSM, shift-register, and pointer checks.
+•Found an illegal FSM transition missed by simulation and a one-cycle pointer-range violation.
+64-Tap 16-Bit FIR Digital FilterOct 2025 - Dec 2025
+•Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, and control FSM.
+•Used an asynchronous FIFO for CDC between the 10 kHz input domain and the high-speed FIR core.
+TECHNICAL SKILLS
+EDA Tools: Synopsys Design Compiler, PrimeTime; Cadence Genus, Innovus, Xcelium; JasperGold, ModelSim, Verdi
+Programming: Verilog, SystemVerilog, Python (NumPy, PyTorch), C, MATLAB
+Focus Areas: ASIC design, RISC-V CPU/VPU architecture, CNN hardware accelerators

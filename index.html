@@ -809,6 +809,12 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-grid > *,
+      .grid > *,
+      .card {
+        min-width: 0;
+      }
+
       .container {
         width: min(calc(100% - 32px), var(--max));
       }
@@ -841,10 +847,58 @@
 
       .nav-inner {
         align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
       }
 
       .nav-group {
         justify-content: flex-start;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 8px 14px;
+        font-size: 12px;
+      }
+
+      .nav-group {
+        gap: 10px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        overflow-wrap: anywhere;
+      }
+
+      h1 {
+        font-size: clamp(34px, 12vw, 48px);
+        letter-spacing: -0.045em;
+      }
+
+      .subtitle {
+        font-size: 17px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+      }
+
+      .actions {
+        gap: 10px;
+      }
+
+      .btn {
+        max-width: 100%;
       }
     }
 
@@ -883,9 +937,8 @@
         <h1 data-i18n="heroTitle">About</h1>
         <p class="subtitle" data-i18n="heroSubtitle">
           Welcome to my personal website! I am currently pursuing an M.S. in Electrical Engineering at Columbia
-          University, and most of my work is in ASIC design, digital VLSI, computer architecture, and hardware
-          acceleration for machine learning. I am currently looking for a Summer 2026 internship and available from
-          mid-May to early September, so feel free to reach out and chat.
+          University. My work focuses on ASIC design, RISC-V CPU/VPU architecture, digital IC design, computer
+          architecture, and hardware acceleration for machine learning. I am open to opportunities in these areas.
         </p>
         <div class="actions">
           <a class="btn primary" href="#projects" data-i18n="ctaProjects">View Projects</a>
@@ -896,11 +949,11 @@
         </div>
         <div class="hero-stats">
           <div class="stat-card">
-            <div class="stat-value" data-i18n="stat1Value">Summer 2026</div>
-            <div class="stat-label" data-i18n="stat1Label">Internship availability window</div>
+            <div class="stat-value" data-i18n="stat1Value">OPEN</div>
+            <div class="stat-label" data-i18n="stat1Label">Hardware and architecture opportunities</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" data-i18n="stat2Value">4.082</div>
+            <div class="stat-value" data-i18n="stat2Value">4.0/4.0</div>
             <div class="stat-label" data-i18n="stat2Label">Columbia EE GPA</div>
           </div>
           <div class="stat-card">
@@ -924,51 +977,22 @@
 
       <div class="card hero-card">
         <div class="hero-card-header">
-          <h3 data-i18n="quickInfoTitle">About Me</h3>
-          <span class="hero-chip" data-i18n="heroChip">Open to Internships</span>
+          <h3 data-i18n="quickInfoTitle">Technical Profile</h3>
+          <span class="hero-chip" data-i18n="heroChip">Open to Opportunities</span>
         </div>
         <div class="quick-section">
           <div class="quick-section-title" data-i18n="skillsTitle">Technical Skills</div>
           <div class="quick-block">
             <span class="quick-label" data-i18n="skill1Label">Simulation &amp; EDA Tools</span>
-            <div class="quick-value" data-i18n="skill1">Cadence (Virtuoso, Spectre, Genus, Innovus), Synopsys (PrimeTime), Vivado, Questa Sim, JasperGold</div>
+            <div class="quick-value" data-i18n="skill1">Synopsys Design Compiler, PrimeTime; Cadence Genus, Innovus, Xcelium; JasperGold, ModelSim, Verdi</div>
           </div>
           <div class="quick-block">
             <span class="quick-label" data-i18n="skill2Label">Programming</span>
-            <div class="quick-value" data-i18n="skill2">Verilog, SystemVerilog, RISC-V, Python (NumPy, PyTorch), C, MATLAB</div>
+            <div class="quick-value" data-i18n="skill2">Verilog, SystemVerilog, Python (NumPy, PyTorch), C, MATLAB</div>
           </div>
           <div class="quick-block">
             <span class="quick-label" data-i18n="skill3Label">Design Expertise</span>
-            <div class="quick-value" data-i18n="skill3">ASIC Design Flow, Digital Circuit Design, CNN Accelerators, SAR ADC, Digital Calibration</div>
-          </div>
-        </div>
-        <div class="quick-section">
-          <div class="quick-section-title" data-i18n="aboutPanelTitle">About Me</div>
-          <div class="quick-grid">
-            <div class="quick-block">
-              <span class="quick-label" data-i18n="quick1Label">Favorite Linux Distro</span>
-              <div class="quick-value" data-i18n="quick1">EndeavourOS</div>
-            </div>
-            <div class="quick-block">
-              <span class="quick-label" data-i18n="quick2Label">Favorite FPGA Tool</span>
-              <div class="quick-value" data-i18n="quick2">Vivado</div>
-            </div>
-            <div class="quick-block">
-              <span class="quick-label" data-i18n="quick3Label">Favorite AI Tool</span>
-              <div class="quick-value" data-i18n="quick3">Codex</div>
-            </div>
-            <div class="quick-block">
-              <span class="quick-label" data-i18n="quick4Label">Most Challenging Experience</span>
-              <div class="quick-value" data-i18n="quick4">Doing the full-custom layout of an 8-bit microcontroller core</div>
-            </div>
-            <div class="quick-block">
-              <span class="quick-label" data-i18n="quick5Label">What CNN Taught Me</span>
-              <div class="quick-value" data-i18n="quick5">Most of the work is not math. It is dataflow.</div>
-            </div>
-            <div class="quick-block">
-              <span class="quick-label" data-i18n="quick6Label">Why Build This Website</span>
-              <div class="quick-value" data-i18n="quick6">To share my projects, interests, and the work I am doing in digital IC design, FPGA, and ASICs.</div>
-            </div>
+            <div class="quick-value" data-i18n="skill3">ASIC Design, RISC-V CPU/VPU Architecture, CNN Hardware Accelerators</div>
           </div>
         </div>
       </div>
@@ -988,17 +1012,16 @@
             </div>
             <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"></rect><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M6 18l1.5-1.5"></path></svg></span><span data-i18n="proj1Title">Systolic Array-Based CNN Accelerator for Gesture Recognition</span></h3>
             <p class="muted" data-i18n="proj1Body">
-              Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm,
-              including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation,
-              synthesis, place-and-route, timing closure, and post-layout verification.
+              Designed a fully hardware INT8 CNN ASIC for 64x64 grayscale gesture recognition, using a fixed network
+              architecture and a 64-PE systolic array in TSMC 65 nm; the chip taped out in July 2026.
             </p>
             <ul class="muted">
-              <li data-i18n="proj1Item1">Architected a compute-and-memory pipeline around a systolic array and local SRAM buffering for efficient CNN inference.</li>
-              <li data-i18n="proj1Item2">Completed the end-to-end digital flow from RTL to backend implementation and signoff-oriented analysis.</li>
-              <li data-i18n="proj1Item3">Co-optimized model structure and hardware cost for a gesture-recognition tape-out project.</li>
+              <li data-i18n="proj1Item1">Built a 64-PE INT8 systolic array with approximately 464K MACs per inference and 8 KB of on-chip SRAM.</li>
+              <li data-i18n="proj1Item2">Completed RTL implementation, DFT scan-chain design, Cadence Genus synthesis, Innovus place and route, and post-layout verification.</li>
+              <li data-i18n="proj1Item3">Developed and quantized CNN models in Python and MATLAB to balance accuracy, silicon area, and hardware cost.</li>
             </ul>
             <p class="muted" data-i18n="proj1Note">
-              This tape-out project is still in progress. The linked datasheet captures an early architectural concept and does not reflect the final scope or outcome of the project. The public repository currently contains only the CNN training and quantization flow, not the RTL implementation.
+              The chip taped out in July 2026. The public repository contains the CNN training and quantization flow; the RTL implementation is not public.
             </p>
             <div class="tags">
               <span class="tag">ASIC</span>
@@ -1014,24 +1037,21 @@
 
           <article class="card project">
             <div class="project-top">
-              <div class="meta" data-i18n="proj2Meta">Mar 2026 - Present · Computer Architecture</div>
+              <div class="meta" data-i18n="proj2Meta">Mar 2026 - Jun 2026 · Computer Architecture</div>
               <span class="project-badge" data-i18n="badgeArchitecture">ARCHITECTURE</span>
             </div>
-            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="12" rx="2"></rect><path d="M8 10h8M8 14h5M3 9h2M3 15h2M19 9h2M19 15h2"></path></svg></span><span data-i18n="proj2Title">Out-of-Order RISC-V Processor</span></h3>
+            <h3 class="project-title"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="12" rx="2"></rect><path d="M8 10h8M8 14h5M3 9h2M3 15h2M19 9h2M19 15h2"></path></svg></span><span data-i18n="proj2Title">P6-Based Out-of-Order RISC-V Processor</span></h3>
             <p class="muted" data-i18n="proj2Body">
-              Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table,
-              reservation stations, physical register file, precise commit, speculative recovery support, and
-              multi-stage execution coordination across the pipeline.
+              Designed a P6-based RISC-V processor with two-wide fetch, dispatch, and retirement, single-issue
+              out-of-order execution, and in-order commit.
             </p>
             <ul class="muted">
-              <li data-i18n="proj2Item1">Implemented core OoO structures including register renaming, reservation-station scheduling, ROB-based commit, and branch-misprediction recovery logic.</li>
-              <li data-i18n="proj2Item2">Designed the interaction between issue, execute, writeback, and commit stages to maintain precise architectural state under speculation.</li>
-              <li data-i18n="proj2Item3">Worked through data hazards, dependency tracking, and rollback behavior to better understand performance-oriented CPU microarchitecture.</li>
-              <li data-i18n="proj2Item4">Used the project to connect classroom architecture concepts with concrete RTL-level control and datapath design decisions.</li>
+              <li data-i18n="proj2Item1">Implemented a 16-entry ROB, 8-entry reservation station, register map table, and CDB for ROB-tag-based register renaming and out-of-order issue.</li>
+              <li data-i18n="proj2Item2">Developed a gshare predictor with a 5-bit GHR and 32-entry BHT/BTB, including two-wide speculative updates and ROB-snapshot recovery.</li>
+              <li data-i18n="proj2Item3">Implemented separate load/store queues and a two-way non-blocking data cache with store-to-load forwarding.</li>
+              <li data-i18n="proj2Item4">Integrated four-entry MSHR capacity and a four-entry victim cache.</li>
             </ul>
-            <p class="muted" data-i18n="proj2Note">
-              This processor project is still a work in progress, and the current description reflects the architecture and implementation scope completed so far.
-            </p>
+            <p class="muted" data-i18n="proj2Note">Implemented as a completed computer-architecture project from March through June 2026.</p>
             <div class="tags">
               <span class="tag">RISC-V</span>
               <span class="tag" data-i18n="tagOoo">OoO Core</span>
@@ -1210,19 +1230,24 @@
         <p class="section-desc" data-i18n="experienceDesc">Selected experience and academic background.</p>
         <div class="grid">
           <article class="card timeline">
-            <div class="meta" data-i18n="exp1Meta">Guangzhou CanSemi Technology Inc. · Jul 2024 - Sep 2024</div>
-            <h3 data-i18n="exp1Title">TCAD / Device Engineering Intern</h3>
+            <div class="meta" data-i18n="exp1Meta">WingSemi Technology · Shanghai Zhangjiang · Jun 2026 - Sep 2026</div>
+            <h3 data-i18n="exp1Title">CPU IP Design Intern</h3>
             <p class="muted" data-i18n="exp1Body">
-              Calibrated a 32 V PMOS TCAD model to foundry recipe data, supported wafer electrical characterization and WAT analysis,
-              and simulated two IGBT structures with contributions to a patent application for a novel device design.
+              Contributed to an RVA23-compliant RISC-V CPU IP, owned the multi-precision VFCVT datapath, designed a three-stage pipeline with lane-level parallelism and PPA optimization, supported VFPU/VCTRL integration and pipeline control, and performed RTL synthesis and timing analysis in Synopsys Design Compiler.
             </p>
           </article>
           <article class="card timeline">
-            <div class="meta" data-i18n="exp2Meta">Education</div>
-            <h3 data-i18n="exp2Title">Columbia University / Sun Yat-sen University</h3>
+            <div class="meta" data-i18n="exp2Meta">Guangzhou CanSemi Technology Inc. · Jul 2024 - Sep 2024</div>
+            <h3 data-i18n="exp2Title">TCAD / Device Engineering Intern</h3>
             <p class="muted" data-i18n="exp2Body">
-              M.S. in Electrical Engineering at Columbia University and B.Eng. in Microelectronic Science and Engineering at Sun Yat-sen University.
-              Coursework includes VLSI design, advanced logic design, hardware design, and formal verification.
+              Built and calibrated a 32 V PMOS TCAD model, analyzed wafer electrical and WAT data, and simulated IGBT device structures in support of patent-related work.
+            </p>
+          </article>
+          <article class="card timeline">
+            <div class="meta" data-i18n="exp3Meta">Education</div>
+            <h3 data-i18n="exp3Title">Columbia University / Sun Yat-sen University</h3>
+            <p class="muted" data-i18n="exp3Body">
+              Columbia University, M.S. in Electrical Engineering, GPA 4.0/4.0, expected December 2026. Sun Yat-sen University, B.Eng. in Microelectronics Science and Engineering, GPA 3.7/4.0, graduated June 2025.
             </p>
           </article>
         </div>
@@ -1261,10 +1286,10 @@
         navContact: "Contact",
         eyebrow: "M.S. in Electrical Engineering · Columbia University",
         heroTitle: "Linxiao Wu",
-        heroSubtitle: "Welcome to my personal website! I am currently pursuing an M.S. in Electrical Engineering at Columbia University, and most of my work is in ASIC design, digital VLSI, computer architecture, and hardware acceleration for machine learning. I am currently looking for a Summer 2026 internship and available from mid-May to early September, so feel free to reach out and chat.",
-        stat1Value: "Summer 2026",
-        stat1Label: "Internship availability window",
-        stat2Value: "4.082",
+        heroSubtitle: "Welcome to my personal website! I am currently pursuing an M.S. in Electrical Engineering at Columbia University. My work focuses on ASIC design, RISC-V CPU/VPU architecture, digital IC design, computer architecture, and hardware acceleration for machine learning. I am open to opportunities in these areas.",
+        stat1Value: "OPEN",
+        stat1Label: "Hardware and architecture opportunities",
+        stat2Value: "4.0/4.0",
         stat2Label: "Columbia EE GPA",
         stat3Value: "8+",
         stat3Label: "Highlighted hardware projects",
@@ -1277,28 +1302,15 @@
         ctaProjects: "View Projects",
         ctaEmail: "Email Me",
         ctaResume: "Download Resume",
-        quickInfoTitle: "About Me",
+        quickInfoTitle: "Technical Profile",
         skillsTitle: "Technical Skills",
-        aboutPanelTitle: "About Me",
-        heroChip: "Open to Internships",
+        heroChip: "Open to Opportunities",
         skill1Label: "Simulation & EDA Tools",
-        skill1: "Cadence (Virtuoso, Spectre, Genus, Innovus), Synopsys (PrimeTime), Vivado, Questa Sim, JasperGold",
+        skill1: "Synopsys Design Compiler, PrimeTime; Cadence Genus, Innovus, Xcelium; JasperGold, ModelSim, Verdi",
         skill2Label: "Programming",
-        skill2: "Verilog, SystemVerilog, RISC-V, Python (NumPy, PyTorch), C, MATLAB",
+        skill2: "Verilog, SystemVerilog, Python (NumPy, PyTorch), C, MATLAB",
         skill3Label: "Design Expertise",
-        skill3: "ASIC Design Flow, Digital Circuit Design, CNN Accelerators, SAR ADC, Digital Calibration",
-        quick1Label: "Favorite Linux Distro",
-        quick1: "EndeavourOS",
-        quick2Label: "Favorite FPGA Tool",
-        quick2: "Vivado",
-        quick3Label: "Favorite AI Tool",
-        quick3: "Codex",
-        quick4Label: "Most Challenging Experience",
-        quick4: "Doing the full-custom layout of an 8-bit microcontroller core",
-        quick5Label: "What CNN Taught Me",
-        quick5: "Most of the work is not math. It is dataflow.",
-        quick6Label: "Why Build This Website",
-        quick6: "To share my projects, interests, and the work I am doing in digital IC design, FPGA, and ASICs.",
+        skill3: "ASIC Design, RISC-V CPU/VPU Architecture, CNN Hardware Accelerators",
         projectsTitle: "Selected Projects",
         projectsDesc: "These are the projects that best represent what I have been working on recently, from ASIC and architecture to verification and digital implementation.",
         ugGroupTitle: "Undergraduate Projects at SYSU",
@@ -1313,19 +1325,19 @@
         badgeAward: "Award",
         badgeSystem: "System Build",
         proj1Title: "Systolic Array-Based CNN Accelerator for Gesture Recognition",
-        proj1Body: "Designed a pure-hardware INT8 CNN accelerator ASIC for 64x64 grayscale gesture recognition in 65 nm, including a 64-PE systolic array, on-chip SRAM architecture, full RTL implementation, synthesis, place-and-route, timing closure, and post-layout verification.",
-        proj1Item1: "Architected a compute-and-memory pipeline around a systolic array and local SRAM buffering for efficient CNN inference.",
-        proj1Item2: "Completed the end-to-end digital flow from RTL to backend implementation and signoff-oriented analysis.",
-        proj1Item3: "Co-optimized model structure and hardware cost for a gesture-recognition tape-out project.",
-        proj1Note: "This tape-out project is still in progress. The linked datasheet captures an early architectural concept and does not reflect the final scope or outcome of the project. The public repository currently contains only the CNN training and quantization flow, not the RTL implementation.",
-        proj2Meta: "Mar 2026 - Present · Computer Architecture",
-        proj2Title: "Out-of-Order RISC-V Processor",
-        proj2Body: "Designed a P6-style out-of-order RISC-V microarchitecture with a reorder buffer, register alias table, reservation stations, physical register file, precise commit, speculative recovery support, and multi-stage execution coordination across the pipeline.",
-        proj2Item1: "Implemented core OoO structures including register renaming, reservation-station scheduling, ROB-based commit, and branch-misprediction recovery logic.",
-        proj2Item2: "Designed the interaction between issue, execute, writeback, and commit stages to maintain precise architectural state under speculation.",
-        proj2Item3: "Worked through data hazards, dependency tracking, and rollback behavior to better understand performance-oriented CPU microarchitecture.",
-        proj2Item4: "Used the project to connect classroom architecture concepts with concrete RTL-level control and datapath design decisions.",
-        proj2Note: "This processor project is still a work in progress, and the current description reflects the architecture and implementation scope completed so far.",
+        proj1Body: "Designed a fully hardware INT8 CNN ASIC for 64x64 grayscale gesture recognition, using a fixed network architecture and a 64-PE systolic array in TSMC 65 nm; the chip taped out in July 2026.",
+        proj1Item1: "Built a 64-PE INT8 systolic array with approximately 464K MACs per inference and 8 KB of on-chip SRAM.",
+        proj1Item2: "Completed RTL implementation, DFT scan-chain design, Cadence Genus synthesis, Innovus place and route, and post-layout verification.",
+        proj1Item3: "Developed and quantized CNN models in Python and MATLAB to balance accuracy, silicon area, and hardware cost.",
+        proj1Note: "The chip taped out in July 2026. The public repository contains the CNN training and quantization flow; the RTL implementation is not public.",
+        proj2Meta: "Mar 2026 - Jun 2026 · Computer Architecture",
+        proj2Title: "P6-Based Out-of-Order RISC-V Processor",
+        proj2Body: "Designed a P6-based RISC-V processor with two-wide fetch, dispatch, and retirement, single-issue out-of-order execution, and in-order commit.",
+        proj2Item1: "Implemented a 16-entry ROB, 8-entry reservation station, register map table, and CDB for ROB-tag-based register renaming and out-of-order issue.",
+        proj2Item2: "Developed a gshare predictor with a 5-bit GHR and 32-entry BHT/BTB, including two-wide speculative updates and ROB-snapshot recovery.",
+        proj2Item3: "Implemented separate load/store queues and a two-way non-blocking data cache with store-to-load forwarding.",
+        proj2Item4: "Integrated four-entry MSHR capacity and a four-entry victim cache.",
+        proj2Note: "Implemented as a completed computer-architecture project from March through June 2026.",
         proj3Meta: "Oct 2025 - Dec 2025 · Digital Design",
         proj3Title: "64-Tap 16-Bit FIR Digital Filter Core",
         proj3Body: "Designed a fixed-point FIR core with a multiply-accumulate datapath, CMEM/IMEM, FSM-based controller, and a dual-clock FIFO for clock-domain crossing. Completed RTL, synthesis, STA, and post-synthesis verification.",
@@ -1364,12 +1376,15 @@
         proj6Item3: "Took primary responsibility for the signal-generator module and final system integration.",
         experienceTitle: "Experience",
         experienceDesc: "This section covers my internship experience and education.",
-        exp1Meta: "Guangzhou CanSemi Technology Inc. · Jul 2024 - Sep 2024",
-        exp1Title: "TCAD / Device Engineering Intern",
-        exp1Body: "Calibrated a 32 V PMOS TCAD model to foundry recipe data, delivered a reusable device model, supported wafer electrical characterization and WAT analysis, and simulated two IGBT structures for a patent-related device study.",
-        exp2Meta: "Education",
-        exp2Title: "Columbia University / Sun Yat-sen University",
-        exp2Body: "M.S. in Electrical Engineering at Columbia University and B.Eng. in Microelectronic Science and Engineering at Sun Yat-Sen University. Coursework includes VLSI Design Lab, Digital VLSI Circuits, Advanced Logic Design, Computer Hardware Design, Formal Verification, embedded systems, FPGA design, and digital signal processing.",
+        exp1Meta: "WingSemi Technology · Shanghai Zhangjiang · Jun 2026 - Sep 2026",
+        exp1Title: "CPU IP Design Intern",
+        exp1Body: "Contributed to an RVA23-compliant RISC-V CPU IP, owned the multi-precision VFCVT datapath for FP64, FP32, FP16, BF16, and integer conversions, designed a three-stage pipeline with lane-level parallelism and PPA optimization, supported VFPU/VCTRL integration with mask/lane, valid/stall/flush, and forwarding control, and performed RTL synthesis and timing analysis in Synopsys Design Compiler.",
+        exp2Meta: "Guangzhou CanSemi Technology Inc. · Jul 2024 - Sep 2024",
+        exp2Title: "TCAD / Device Engineering Intern",
+        exp2Body: "Built and calibrated a 32 V PMOS TCAD model, analyzed wafer electrical and WAT data, and simulated IGBT device structures in support of patent-related work.",
+        exp3Meta: "Education",
+        exp3Title: "Columbia University / Sun Yat-sen University",
+        exp3Body: "Columbia University, M.S. in Electrical Engineering, GPA 4.0/4.0, expected December 2026. Sun Yat-sen University, B.Eng. in Microelectronics Science and Engineering, GPA 3.7/4.0, graduated June 2025.",
         contactTitle: "Contact",
         contactDesc: "Feel free to reach out for research, internship, or full-time opportunities.",
         contactEmail: "Email",
@@ -1402,10 +1417,10 @@
         navContact: "联系方式",
         eyebrow: "哥伦比亚大学电子工程硕士",
         heroTitle: "吴林晓",
-        heroSubtitle: "大家好，欢迎来到我的个人网站！我目前在在哥伦比亚大学攻读电子工程硕士，平时主要做 ASIC 设计、数字 VLSI、计算机体系结构，以及面向机器学习的硬件加速等等。现在正在找 2026 年暑期实习，可工作的时间是 5 月中旬到 9 月初，欢迎来与我联系与交流！",
-        stat1Value: "2026 暑期",
-        stat1Label: "实习可入职时间",
-        stat2Value: "4.082",
+        heroSubtitle: "大家好，欢迎来到我的个人网站！我目前在哥伦比亚大学攻读电子工程硕士，主要关注硬件设计、ASIC、RISC-V CPU/VPU、数字 IC、计算机体系结构及机器学习硬件加速。目前对这些方向的实习与全职机会保持开放，欢迎与我联系交流。",
+        stat1Value: "开放",
+        stat1Label: "硬件与体系结构相关机会",
+        stat2Value: "4.0/4.0",
         stat2Label: "哥大电子工程 GPA",
         stat3Value: "8+",
         stat3Label: "重点展示硬件项目",
@@ -1418,28 +1433,15 @@
         ctaProjects: "查看项目",
         ctaEmail: "给我发邮件",
         ctaResume: "下载简历",
-        quickInfoTitle: "About Me",
+        quickInfoTitle: "技术概览",
         skillsTitle: "技术能力",
-        aboutPanelTitle: "About Me",
-        heroChip: "可实习",
+        heroChip: "开放机会",
         skill1Label: "仿真与 EDA 工具",
-        skill1: "Cadence（Virtuoso、Spectre、Genus、Innovus），Synopsys（PrimeTime），Vivado，Questa Sim，JasperGold",
+        skill1: "Synopsys Design Compiler、PrimeTime；Cadence Genus、Innovus、Xcelium；JasperGold、ModelSim、Verdi",
         skill2Label: "编程",
-        skill2: "Verilog、SystemVerilog、RISC-V、Python（NumPy、PyTorch）、C、MATLAB",
+        skill2: "Verilog、SystemVerilog、Python（NumPy、PyTorch）、C、MATLAB",
         skill3Label: "设计方向",
-        skill3: "ASIC Design Flow、数字电路设计、CNN 加速器、SAR ADC、数字校准",
-        quick1Label: "我最喜欢的 Linux 发行版",
-        quick1: "EndeavourOS",
-        quick2Label: "我最喜欢的 FPGA 开发工具",
-        quick2: "Vivado",
-        quick3Label: "我最喜欢的 AI 工具",
-        quick3: "Codex",
-        quick4Label: "最有挑战的一段经历",
-        quick4: "纯手工完成一个 8-bit microcontroller core 的 full-custom layout",
-        quick5Label: "CNN 教会我的事",
-        quick5: "大部分工作其实不是数学，而是 dataflow。",
-        quick6Label: "为什么要做这个网站",
-        quick6: "用来整理和展示我做过的项目、兴趣，以及我在数字 IC、FPGA 和 ASIC 方向上的工作。",
+        skill3: "ASIC 设计、RISC-V CPU/VPU 架构、CNN 硬件加速器",
         projectsTitle: "项目经历",
         projectsDesc: "这里放的是我最近最能代表自己方向的一些项目，主要集中在 ASIC、体系结构、验证，以及数字实现这些方向。",
         ugGroupTitle: "中山大学本科阶段项目",
@@ -1454,19 +1456,19 @@
         badgeAward: "获奖",
         badgeSystem: "系统实现",
         proj1Title: "基于脉动阵列的手势识别 CNN 加速器",
-        proj1Body: "面向 65 nm 工艺下 64x64 灰度手势识别任务，设计纯硬件 INT8 CNN 加速器 ASIC，包括 64 个 PE 的脉动阵列、片上 SRAM 架构、完整 RTL 实现、综合、布局布线、时序收敛和版图后验证。",
-        proj1Item1: "围绕脉动阵列和本地 SRAM 缓冲设计计算与存储协同的数据通路，以提升 CNN 推理效率。",
-        proj1Item2: "完成从 RTL 到后端实现及签核导向分析的端到端数字设计流程。",
-        proj1Item3: "结合流片目标，在模型结构与硬件成本之间进行协同优化。",
-        proj1Note: "该流片项目目前仍在进行中，当前链接的 datasheet 仅展示项目早期架构概念，并不代表最终范围或成果。公开仓库暂时只包含 CNN 训练与量化模型流程，不展示 RTL 实现部分。",
-        proj2Meta: "2026 年 3 月至今 · 计算机体系结构",
-        proj2Title: "乱序执行 RISC-V 处理器",
-        proj2Body: "设计 P6 风格的乱序执行 RISC-V 微架构，包含 ROB、寄存器重命名表、保留站、物理寄存器文件、精确提交、投机恢复机制，以及跨流水级的执行协调逻辑。",
-        proj2Item1: "实现寄存器重命名、保留站调度、基于 ROB 的提交，以及分支预测失败后的恢复等核心乱序执行结构。",
-        proj2Item2: "梳理发射、执行、写回和提交阶段之间的交互，在投机执行条件下维持精确体系结构状态。",
-        proj2Item3: "围绕数据冒险、依赖跟踪和回滚行为展开设计，加深对高性能 CPU 微架构的理解。",
-        proj2Item4: "通过该项目把课堂中的体系结构概念落实到具体的 RTL 控制逻辑和数据通路设计决策中。",
-        proj2Note: "该处理器项目目前仍在进行中，当前页面中的描述主要对应目前已经完成的架构设计与实现范围。",
+        proj1Body: "面向 64x64 灰度手势识别任务，设计采用固定网络结构的纯硬件 INT8 CNN ASIC，并在 TSMC 65 nm 工艺下实现 64 个 PE 的脉动阵列；芯片已于 2026 年 7 月投片。",
+        proj1Item1: "实现 64 个 PE 的 INT8 脉动阵列，单次推理约 464K 次 MAC 运算，并集成 8 KB 片上 SRAM。",
+        proj1Item2: "完成 RTL 实现、DFT scan chain 设计、Cadence Genus 综合、Innovus 布局布线及版图后验证。",
+        proj1Item3: "使用 Python 和 MATLAB 完成 CNN 模型构建与量化评估，平衡精度、芯片面积与硬件开销。",
+        proj1Note: "芯片已于 2026 年 7 月完成投片。公开仓库仅包含 CNN 训练与量化流程，不公开 RTL 实现。",
+        proj2Meta: "2026 年 3 月 - 2026 年 6 月 · 计算机体系结构",
+        proj2Title: "基于 P6 微架构的乱序执行 RISC-V 处理器",
+        proj2Body: "设计基于 P6 微架构的 RISC-V 处理器，支持 2-wide Fetch、Dispatch 与 Retire、单发射乱序执行及顺序提交。",
+        proj2Item1: "实现 16-entry ROB、8-entry Reservation Station、Map Table 与 CDB，支持基于 ROB Tag 的寄存器重命名和乱序发射。",
+        proj2Item2: "设计 5-bit GHR 与 32-entry BHT/BTB 的 gshare 分支预测器，支持 2-wide 投机更新和基于 ROB snapshot 的误预测恢复。",
+        proj2Item3: "实现独立 LQ/SQ 与 2-way non-blocking D-cache，支持 Store-to-Load Forwarding。",
+        proj2Item4: "集成 4-entry MSHR 与 4-entry Victim Cache。",
+        proj2Note: "该计算机体系结构项目已于 2026 年 6 月完成。",
         proj3Meta: "2025 年 10 月 - 2025 年 12 月 · 数字设计",
         proj3Title: "64 阶 16 位 FIR 数字滤波器核心",
         proj3Body: "设计定点 FIR 核心，包含乘累加数据通路、CMEM/IMEM、基于 FSM 的控制器，以及用于跨时钟域的双时钟 FIFO，并完成 RTL、综合、静态时序分析和综合后验证。",
@@ -1505,12 +1507,15 @@
         proj6Item3: "个人主要负责信号发生器模块设计以及项目最终整合。",
         experienceTitle: "经历",
         experienceDesc: "这里放的是我的实习经历和教育背景。",
-        exp1Meta: "粤芯半导体 · 2024 年 7 月 - 2024 年 9 月",
-        exp1Title: "TCAD / 器件工程实习生",
-        exp1Body: "基于代工厂工艺数据建立 32V PMOS 器件的 TCAD 模型，并交付可复用的器件模型；参与晶圆电特性量测与 WAT 分析，并模拟两种 IGBT 结构，为新型器件专利申请提供支持。",
-        exp2Meta: "教育背景",
-        exp2Title: "哥伦比亚大学 / 中山大学",
-        exp2Body: "哥伦比亚大学电子工程硕士，中山大学微电子科学与工程学士。课程涵盖 VLSI 设计实验、数字 VLSI 电路设计、高级逻辑设计、形式化验证、计算机硬件架构，以及嵌入式系统、FPGA 设计和数字信号处理。",
+        exp1Meta: "隼瞻科技 · 上海张江 · 2026 年 6 月 - 2026 年 9 月",
+        exp1Title: "CPU IP 设计实习生",
+        exp1Body: "参与符合 RVA23 Profile 的 RISC-V CPU IP 开发，负责支持 FP64、FP32、FP16、BF16 与整数转换的 VFCVT 多精度数据通路；设计三级流水线、Lane 级并行处理及 PPA 优化，参与 VFPU/VCTRL、mask/lane、valid/stall/flush 与 forwarding 机制，并使用 Synopsys Design Compiler 完成 RTL 综合及时序分析。",
+        exp2Meta: "粤芯半导体 · 2024 年 7 月 - 2024 年 9 月",
+        exp2Title: "TCAD / 器件工程实习生",
+        exp2Body: "完成 32V PMOS TCAD 建模与校准，参与晶圆电特性和 WAT 数据分析，并模拟 IGBT 器件结构，为专利相关工作提供支持。",
+        exp3Meta: "教育背景",
+        exp3Title: "哥伦比亚大学 / 中山大学",
+        exp3Body: "哥伦比亚大学电气工程硕士，GPA 4.0/4.0，预计 2026 年 12 月毕业；中山大学微电子科学与工程学士，GPA 3.7/4.0，2025 年 6 月毕业。",
         contactTitle: "联系方式",
         contactDesc: "欢迎联系我讨论科研、实习或全职机会。",
         contactEmail: "邮箱",
